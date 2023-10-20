@@ -14,7 +14,7 @@ class Profile(models.Model):
     image = ResizedImageField(
         size=[300, 300],
         upload_to='cinematography/',
-        default='../cinematography/ucqo5sjbdjholxwenlds',
+        default='../default-user_fqha9k',
     )
 
     class Meta:
