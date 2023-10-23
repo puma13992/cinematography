@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from taggit.serializers import (TagListSerializerField,
                                 TaggitSerializer)
-from wishlist.models import Wishlist
 from .models import Movie
 
 
