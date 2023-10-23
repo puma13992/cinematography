@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('movies.urls')),
     path('', include('comments.urls')),
     path('', include('wishlists.urls')),
+    path('', include('glossary.urls')),
 ]
