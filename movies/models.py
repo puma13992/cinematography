@@ -16,8 +16,8 @@ class Movie(models.Model):
     director = models.CharField(max_length=75)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='pp5test/',
-        default='../static/pp5test/default_user_fqnvic',
+        upload_to='cinematography/',
+        default='../default-user_fqha9k',
         blank=True
     )
     categories = TaggableManager(
