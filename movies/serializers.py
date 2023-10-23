@@ -14,6 +14,7 @@ class MovieSerializer(TaggitSerializer, serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     wishlist_id = serializers.SerializerMethodField()
+    wishlist_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -47,5 +48,5 @@ class MovieSerializer(TaggitSerializer, serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'release', 'director', 'content',
-            'image', 'categories', 'wishlist_id',
+            'image', 'categories', 'wishlist_id', 'wishlist_count',
             ]
