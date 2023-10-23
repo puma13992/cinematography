@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Other libraries
     'rest_framework',
+    'taggit',
     
     # Apps
     'profiles',

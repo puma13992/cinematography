@@ -3,6 +3,7 @@ cloudinary==1.36.0
 Django==3.2.22
 django-cloudinary-storage==0.3.0
 django-resized==1.0.2
+django-taggit==4.0.0
 djangorestframework==3.14.0
 Pillow==8.2.0
 pytz==2023.3.post1
