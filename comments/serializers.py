@@ -23,3 +23,12 @@ class CommentSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'movie', 'created_at', 'updated_at', 'content'
         ]
+
+
+# Code from CI walkthrough Django Rest Framework; slightly modified
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for the Comment model used in Detail view
+    Movie is a read only field so that we dont have to set it on each update
+    """
+    movie = serializers.ReadOnlyField(source='movie.id')
