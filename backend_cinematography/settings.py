@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Other libraries
     'rest_framework',
+    'django_filters',
     'taggit',
     'django_resized',
     
