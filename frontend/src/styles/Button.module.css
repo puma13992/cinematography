@@ -1,0 +1,11 @@
+.ButtonLight {
+	border-color: #343a40;
+}
+
+.ButtonLight:hover {
+	border-color: #343a40;
+}
+
+.ButtonDark:hover {
+	text-decoration: underline;
+}
