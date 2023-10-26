@@ -8,36 +8,36 @@ const NavBar = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="md" fixed="top">
 			<Container>
-				<Nav.Link to="/">
+				<NavLink to="/">
 					<Navbar.Brand href="#home">
 						<img src={logo} alt="logo" height="45" />
 					</Navbar.Brand>
-				</Nav.Link>
+				</NavLink>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse className="justify-content-end">
 					<Nav>
-						<Nav.Link
+						<NavLink
 							exact
-							className="text-light px-3"
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
 							activeClassName={styles.Active}
 							to="/"
 						>
 							<i class="fa-solid fa-house"></i> Home
-						</Nav.Link>
-						<Nav.Link
-							className="text-light px-3"
+						</NavLink>
+						<NavLink
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
 							activeClassName={styles.Active}
 							to="/signin"
 						>
 							<i class="fas fa-sign-in-alt"></i> Sign in
-						</Nav.Link>
-						<Nav.Link
-							className="text-light px-3"
+						</NavLink>
+						<NavLink
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
 							activeClassName={styles.Active}
 							to="/signup"
 						>
 							<i class="fa-solid fa-user-plus"></i> Sign up
-						</Nav.Link>
+						</NavLink>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

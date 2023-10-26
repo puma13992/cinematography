@@ -1,3 +1,11 @@
-.Active i {
-	color: blue !important;
+.NavbarBrand:hover {
+	transform: scale(1.1);
+}
+
+.Active {
+	text-decoration: underline;
+}
+
+.NavLink:hover i {
+	color: #cfe2ff;
 }
