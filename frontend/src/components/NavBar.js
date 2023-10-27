@@ -39,21 +39,21 @@ const NavBar = () => {
 	const loggedInIcons = (
 		<>
 			<NavLink
-				className={`text-light px-3 ${styles.NavLink}`}
+				className={`text-light px-3 py-2 ${styles.NavLink}`}
 				activeClassName={styles.Active}
 				to="/wishlist"
 			>
 				<i class="fa-solid fa-heart"></i> Wishlist
 			</NavLink>
 			<NavLink
-				className={`text-light px-3 ${styles.NavLink}`}
+				className={`text-light px-3 py-2 ${styles.NavLink}`}
 				to="/"
 				onClick={handleSignOut}
 			>
 				<i className="fas fa-sign-out-alt"></i> Sign out
 			</NavLink>
 			<NavLink
-				className={`text-light px-3 ${styles.NavLink}`}
+				className={`text-light px-1 py-2 ${styles.NavLink}`}
 				to={`/profiles/${currentUser?.profile_id}`}
 			>
 				<Avatar src={currentUser?.profile_image} text="Profile" height={30} />
@@ -102,14 +102,30 @@ const NavBar = () => {
 					aria-controls="basic-navbar-nav"
 				/>
 				<Navbar.Collapse className="justify-content-end">
-					<Nav className="ml-auto text-left">
+					<Nav className="text-md-center text-sm-left">
 						<NavLink
 							exact
-							className={`text-light px-3 ${styles.NavLink}`}
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
 							activeClassName={styles.Active}
 							to="/"
 						>
 							<i class="fa-solid fa-house"></i> Home
+						</NavLink>
+						<NavLink
+							exact
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
+							activeClassName={styles.Active}
+							to="/movies"
+						>
+							<i class="fa-solid fa-film"></i> Movies
+						</NavLink>
+						<NavLink
+							exact
+							className={`text-light px-3 py-2 ${styles.NavLink}`}
+							activeClassName={styles.Active}
+							to="/glossary"
+						>
+							<i class="fa-solid fa-book"></i> Glossary
 						</NavLink>
 
 						{currentUser ? loggedInIcons : loggedOutIcons}
