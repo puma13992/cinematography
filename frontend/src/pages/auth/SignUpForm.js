@@ -10,6 +10,7 @@ import axios from "axios";
 
 const SignUpForm = () => {
 	const [signUpData, setSignUpData] = useState({
+		email: "",
 		username: "",
 		password1: "",
 		password2: "",
@@ -46,7 +47,7 @@ const SignUpForm = () => {
 						<Form onSubmit={handleSubmit}>
 							<Form.Group controlId="email">
 								<Form.Control
-									type="text"
+									type="email"
 									placeholder="Email"
 									name="email"
 									value={email}
