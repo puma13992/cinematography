@@ -8,7 +8,11 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 const NavBar = () => {
 	const currentUser = useCurrentUser();
 
-	const loggedInIcons = <>{currentUser?.username}</>;
+	const loggedInIcons = (
+		<>
+			<span className="text-light px-3">{currentUser?.username}</span>
+		</>
+	);
 	const loggedOutIcons = (
 		<>
 			<NavLink
