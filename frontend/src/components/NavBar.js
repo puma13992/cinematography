@@ -10,10 +10,13 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import AlertPopup from "../components/AlertPopup";
+import useAlert from "../hooks/useAlert";
 
 const NavBar = () => {
 	const currentUser = useCurrentUser();
 	const setCurrentUser = useSetCurrentUser();
+	const { setAlert } = useAlert();
 
 	const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
@@ -21,8 +24,10 @@ const NavBar = () => {
 		try {
 			await axios.post("dj-rest-auth/logout/");
 			setCurrentUser(null);
+			setAlert("You have succesfully logged out !", "success");
 		} catch (err) {
 			console.log(err);
+			setAlert(err.message, "error");
 		}
 	};
 
@@ -32,7 +37,7 @@ const NavBar = () => {
 			activeClassName={styles.Active}
 			to="/movies/create"
 		>
-			<i class="fa-solid fa-plus"></i> Add movie
+			<i class="fa-solid fa-plus"></i>Add movie
 		</NavLink>
 	);
 
@@ -96,17 +101,16 @@ const NavBar = () => {
 					<Navbar.Brand className={styles.NavbarBrand}>
 						<img src={logo} alt="logo" height="45" />
 					</Navbar.Brand>
+					<AlertPopup />
 				</NavLink>
-
 				{currentUser && addMovieIcon}
-
 				<Navbar.Toggle
 					ref={ref}
 					onClick={() => setExpanded(!expanded)}
 					aria-controls="basic-navbar-nav"
 				/>
 				<Navbar.Collapse className="justify-content-end">
-					<Nav className="text-md-center text-sm-left">
+					<Nav className="ml-auto text-md-center text-sm-left">
 						<NavLink
 							exact
 							className={`text-light px-3 py-2 ${styles.NavLink}`}
