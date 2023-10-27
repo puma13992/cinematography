@@ -3,43 +3,71 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+	useCurrentUser,
+	useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
 	const currentUser = useCurrentUser();
+	const setCurrentUser = useSetCurrentUser();
+
+	const handleSignOut = async () => {
+		try {
+			await axios.post("dj-rest-auth/logout/");
+			setCurrentUser(null);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const addMovieIcon = (
+		<NavLink
+			className={`text-light px-3 ${styles.NavLink}`}
+			activeClassName={styles.Active}
+			to="/movies/create"
+		>
+			<i class="fa-solid fa-plus"></i> Add movie
+		</NavLink>
+	);
 
 	const loggedInIcons = (
 		<>
-			<span className="text-light px-3">{currentUser?.username}</span>
+			<NavLink
+				className={`text-light px-3 ${styles.NavLink}`}
+				activeClassName={styles.Active}
+				to="/wishlist"
+			>
+				<i class="fa-solid fa-heart"></i> Wishlist
+			</NavLink>
+			<NavLink
+				className={`text-light px-3 ${styles.NavLink}`}
+				to="/"
+				onClick={handleSignOut}
+			>
+				<i className="fas fa-sign-out-alt"></i> Sign out
+			</NavLink>
+			<NavLink
+				className={`text-light px-3 ${styles.NavLink}`}
+				to={`/profiles/${currentUser?.profile_id}`}
+			>
+				<Avatar src={currentUser?.profile_image} text="Profile" height={30} />
+			</NavLink>
 		</>
 	);
 	const loggedOutIcons = (
 		<>
 			<NavLink
-				exact
-				className={`text-light px-3 ${styles.NavLink}`}
-				activeClassName={styles.Active}
-				to="/movies"
-			>
-				<i class="fa-solid fa-film"></i> Movies
-			</NavLink>
-			<NavLink
-				exact
-				className={`text-light px-3 ${styles.NavLink}`}
-				activeClassName={styles.Active}
-				to="/glossary"
-			>
-				<i class="fa-solid fa-book"></i> Glossary
-			</NavLink>
-			<NavLink
-				className={`text-light px-3 ${styles.NavLink}`}
+				className={`text-light px-3 py-2 ${styles.NavLink}`}
 				activeClassName={styles.Active}
 				to="/signin"
 			>
 				<i class="fas fa-sign-in-alt"></i> Sign in
 			</NavLink>
 			<NavLink
-				className={`text-light px-3 ${styles.NavLink}`}
+				className={`text-light px-3 py-2 ${styles.NavLink}`}
 				activeClassName={styles.Active}
 				to="/signup"
 			>
@@ -56,6 +84,9 @@ const NavBar = () => {
 						<img src={logo} alt="logo" height="45" />
 					</Navbar.Brand>
 				</NavLink>
+
+				{currentUser && addMovieIcon}
+
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse className="justify-content-end">
 					<Nav className="ml-auto text-left">
