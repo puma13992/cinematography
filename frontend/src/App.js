@@ -13,6 +13,8 @@ function App() {
 			<Container className={styles.Main}>
 				<Switch>
 					<Route exact path="/" render={() => <h1>Home page</h1>} />
+					<Route exact path="/movies" render={() => <h1>Movies</h1>} />
+					<Route exact path="/glossary" render={() => <h1>Glossary</h1>} />
 					<Route exact path="/signin" render={() => <SignInForm />} />
 					<Route exact path="/signup" render={() => <SignUpForm />} />
 					<Route render={() => <p>Page not found!</p>} />
