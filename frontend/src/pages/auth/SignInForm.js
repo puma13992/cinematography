@@ -3,11 +3,13 @@ import axios from "axios";
 
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import useAlert from "../../hooks/useAlert";
 
 function SignInForm() {
 	const setCurrentUser = useSetCurrentUser();
@@ -19,15 +21,17 @@ function SignInForm() {
 	const { username, password } = signInData;
 
 	const [errors, setErrors] = useState({});
+	const { setAlert } = useAlert();
 
 	const history = useHistory();
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+
 		try {
-			await axios.post("/dj-rest-auth/login/", signInData);
 			const { data } = await axios.post("/dj-rest-auth/login/", signInData);
 			setCurrentUser(data.user);
 			history.push("/");
+			setAlert(`${username}, you have succesfully logged in!`, "success");
 		} catch (err) {
 			setErrors(err.response?.data);
 		}
@@ -81,19 +85,34 @@ function SignInForm() {
 								</Alert>
 							))}
 
-							<Button
-								variant="dark"
-								type="submit"
-								className={btnStyles.ButtonDark}
-								block
-							>
-								Sign in
-							</Button>
-							{errors.non_field_errors?.map((message, idx) => (
-								<Alert key={idx} variant="warning" className="mt-3">
-									{message}
-								</Alert>
-							))}
+							<Row>
+								<Col className="my-auto py-2" lg={6} md={12}>
+									<Button
+										variant="dark"
+										type="submit"
+										className={btnStyles.ButtonDark}
+										block
+									>
+										Sign in
+									</Button>
+									{errors.non_field_errors?.map((message, idx) => (
+										<Alert key={idx} variant="warning" className="mt-3">
+											{message}
+										</Alert>
+									))}
+								</Col>
+								<Col className="my-auto py-2" lg={6} md={12}>
+									<Button
+										variant="outline-light"
+										className={btnStyles.ButtonLight}
+										block
+									>
+										<Link to="/" className="text-dark">
+											Lost password?
+										</Link>
+									</Button>
+								</Col>
+							</Row>
 						</Form>
 					</Container>
 				</Col>
