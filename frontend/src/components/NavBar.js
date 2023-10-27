@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
+	const currentUser = useContext(CurrentUserContext);
+
+	const loggedInIcons = <>{currentUser?.username}</>;
+	const loggedOutIcons = (
+		<>
+			<NavLink
+				exact
+				className={`text-light px-3 ${styles.NavLink}`}
+				activeClassName={styles.Active}
+				to="/movies"
+			>
+				<i class="fa-solid fa-film"></i> Movies
+			</NavLink>
+			<NavLink
+				exact
+				className={`text-light px-3 ${styles.NavLink}`}
+				activeClassName={styles.Active}
+				to="/glossary"
+			>
+				<i class="fa-solid fa-book"></i> Glossary
+			</NavLink>
+			<NavLink
+				className={`text-light px-3 ${styles.NavLink}`}
+				activeClassName={styles.Active}
+				to="/signin"
+			>
+				<i class="fas fa-sign-in-alt"></i> Sign in
+			</NavLink>
+			<NavLink
+				className={`text-light px-3 ${styles.NavLink}`}
+				activeClassName={styles.Active}
+				to="/signup"
+			>
+				<i class="fa-solid fa-user-plus"></i> Sign up
+			</NavLink>
+		</>
+	);
+
 	return (
 		<Navbar bg="dark" variant="dark" expand="md" fixed="top">
 			<Container>
@@ -24,36 +63,8 @@ const NavBar = () => {
 						>
 							<i class="fa-solid fa-house"></i> Home
 						</NavLink>
-						<NavLink
-							exact
-							className={`text-light px-3 ${styles.NavLink}`}
-							activeClassName={styles.Active}
-							to="/movies"
-						>
-							<i class="fa-solid fa-film"></i> Movies
-						</NavLink>
-						<NavLink
-							exact
-							className={`text-light px-3 ${styles.NavLink}`}
-							activeClassName={styles.Active}
-							to="/glossary"
-						>
-							<i class="fa-solid fa-book"></i> Glossary
-						</NavLink>
-						<NavLink
-							className={`text-light px-3 ${styles.NavLink}`}
-							activeClassName={styles.Active}
-							to="/signin"
-						>
-							<i class="fas fa-sign-in-alt"></i> Sign in
-						</NavLink>
-						<NavLink
-							className={`text-light px-3 ${styles.NavLink}`}
-							activeClassName={styles.Active}
-							to="/signup"
-						>
-							<i class="fa-solid fa-user-plus"></i> Sign up
-						</NavLink>
+
+						{currentUser ? loggedInIcons : loggedOutIcons}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
