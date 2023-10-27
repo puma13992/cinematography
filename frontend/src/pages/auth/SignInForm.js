@@ -43,7 +43,7 @@ function SignInForm() {
 	return (
 		<div className={appStyles.App}>
 			<Row className={styles.Header}>
-				<Col className="my-auto p-0 p-md-2" md={12}>
+				<Col className="my-auto py-2 p-md-2" md={12}>
 					<Container>
 						<h1>Sign in</h1>
 						<Form onSubmit={handleSubmit}>
