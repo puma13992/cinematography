@@ -6,6 +6,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ResetPasswordForm from "./pages/auth/ResetPasswordForm";
+import ResetPasswordConfirmForm from "./pages/auth/ResetPasswordConfirmForm";
 
 function App() {
 	return (
@@ -22,6 +23,11 @@ function App() {
 						exact
 						path="/dj-rest-auth/password/reset/"
 						render={() => <ResetPasswordForm />}
+					/>
+					<Route
+						exact
+						path="/dj-rest-auth/password/reset/confirm/:uid/:token/"
+						render={() => <ResetPasswordConfirmForm />}
 					/>
 					<Route render={() => <p>Page not found!</p>} />
 				</Switch>

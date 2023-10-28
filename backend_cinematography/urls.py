@@ -31,7 +31,6 @@ urlpatterns = [
     path('', include('comments.urls')),
     path('', include('wishlists.urls')),
     path('', include('glossary.urls')),
-    path('password-reset/', PasswordResetView.as_view()),
-    path('password-reset-confirm/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('dj-rest-auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),
+    path('dj-rest-auth/password/reset/confirm/<uid>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 ]
