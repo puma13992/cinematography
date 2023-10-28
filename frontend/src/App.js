@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
+import ResetPasswordForm from "./pages/auth/ResetPasswordForm";
 
 function App() {
 	return (
@@ -17,6 +18,11 @@ function App() {
 					<Route exact path="/glossary" render={() => <h1>Glossary</h1>} />
 					<Route exact path="/signin" render={() => <SignInForm />} />
 					<Route exact path="/signup" render={() => <SignUpForm />} />
+					<Route
+						exact
+						path="/dj-rest-auth/password/reset/"
+						render={() => <ResetPasswordForm />}
+					/>
 					<Route render={() => <p>Page not found!</p>} />
 				</Switch>
 			</Container>

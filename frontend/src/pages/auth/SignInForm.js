@@ -107,7 +107,10 @@ function SignInForm() {
 										className={btnStyles.ButtonLight}
 										block
 									>
-										<Link to="/" className="text-dark">
+										<Link
+											to="/dj-rest-auth/password/reset"
+											className="text-dark"
+										>
 											Lost password?
 										</Link>
 									</Button>
