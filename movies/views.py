@@ -26,9 +26,8 @@ class MovieList(generics.ListCreateAPIView):
         'title',
         'release',
         'director',
-        'categories__name',
+        'categories',
         'content',
-        'wishlist',
     ]
     search_fields = [
         'owner__username',
@@ -36,9 +35,8 @@ class MovieList(generics.ListCreateAPIView):
         'title',
         'release',
         'director',
-        'categories__name',
+        'categories',
         'content',
-        'wishlist',
     ]
     ordering_fields = [
         'wishlist_count',

@@ -8,7 +8,6 @@ django-cloudinary-storage==0.3.0
 django-cors-headers==4.3.0
 django-filter==23.3
 django-resized==1.0.2
-django-taggit==4.0.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==4.7.2
 gunicorn==21.2.0

@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
-from taggit.managers import TaggableManager
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Movie(models.Model):
-    '''
-    Movie model, related to 'owner', i.e. a User instance.
-    Default image set so that we can always reference image.url.
-    '''
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -16,14 +18,11 @@ class Movie(models.Model):
     director = models.CharField(max_length=75)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='cinematography/',
-        default='../default-user_fqha9k',
+        upload_to='pp5test/',
+        default='../static/pp5test/default_user_fqnvic',
         blank=True
     )
-    categories = TaggableManager(
-        verbose_name="Categories",
-        help_text="A comma-separated list of categories.",
-    )
+    categories = models.ManyToManyField(Category)
 
     class Meta:
         ordering = ['-created_at']

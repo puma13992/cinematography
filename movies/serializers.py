@@ -1,13 +1,10 @@
 from rest_framework import serializers
-from taggit.serializers import (TagListSerializerField,
-                                TaggitSerializer)
 from wishlists.models import Wishlist
-from .models import Movie
+from .models import Movie, Category
 
 
 # Code basic from CI walkthrough Django Rest Framework; modified
-class MovieSerializer(TaggitSerializer, serializers.ModelSerializer):
-    categories = TagListSerializerField()
+class MovieSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -41,6 +38,13 @@ class MovieSerializer(TaggitSerializer, serializers.ModelSerializer):
             ).first()
             return wishlist.id if wishlist else None
         return None
+    
+    categories = serializers.SlugRelatedField(
+        many=True,
+        slug_field='name',
+        queryset=Category.objects.all()
+    )
+
     
     class Meta:
         model = Movie
