@@ -1,0 +1,54 @@
+.Header {
+	padding-top: 80px;
+}
+
+.Title {
+	font-size: 2rem;
+}
+
+.Title:hover {
+	text-decoration: underline #0d6efd;
+}
+
+.Subtitles {
+	font-weight: bold;
+}
+
+.Upload:hover {
+	transform: scale(1.1);
+}
+
+.Cursor:hover {
+	cursor: pointer;
+}
+
+.Iconsright {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.Overflow {
+	overflow: hidden;
+}
+
+.Uploadbutton {
+	display: none;
+}
+
+.Heart:hover {
+	color: #0d6efd;
+}
+
+.HeartOutline:hover {
+	color: #0d6efd;
+}
+
+.Image {
+	max-height: 40vh;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.CreateUpdateText {
+	font-size: 11px;
+}
