@@ -1,11 +1,5 @@
 from django.contrib import admin
-from .models import Movie, Category
-
-
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-
-admin.site.register(Category, CategoryAdmin)
+from .models import Movie
 
 
 @admin.register(Movie)

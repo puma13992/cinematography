@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from wishlists.models import Wishlist
-from .models import Movie, Category
+from .models import Movie
 
 
 # Code basic from CI walkthrough Django Rest Framework; modified
@@ -12,6 +12,7 @@ class MovieSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     wishlist_id = serializers.SerializerMethodField()
     wishlist_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -29,7 +30,7 @@ class MovieSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def get_wishlist_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -38,19 +39,13 @@ class MovieSerializer(serializers.ModelSerializer):
             ).first()
             return wishlist.id if wishlist else None
         return None
-    
-    categories = serializers.SlugRelatedField(
-        many=True,
-        slug_field='name',
-        queryset=Category.objects.all()
-    )
 
-    
     class Meta:
         model = Movie
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'release', 'director', 'content',
-            'image', 'categories', 'wishlist_id', 'wishlist_count',
+            'image', 'category', 'wishlist_id', 'wishlist_count',
+            'comments_count',
             ]

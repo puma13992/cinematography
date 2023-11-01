@@ -22,21 +22,15 @@ class MovieList(generics.ListCreateAPIView):
     filterset_fields = [
         'wishlist__owner__profile',
         'owner__username',
-        'created_at',
-        'title',
-        'release',
-        'director',
-        'categories',
-        'content',
+        'category',
     ]
     search_fields = [
         'owner__username',
-        'created_at',
         'title',
         'release',
         'director',
-        'categories',
         'content',
+        'category',
     ]
     ordering_fields = [
         'wishlist_count',

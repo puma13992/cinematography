@@ -2,14 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Movie(models.Model):
+
+    genre_category = (
+        ("Drama", "Drama"),
+        ("Documentation", "Documentation"),
+        ("Biography", "Biography"),
+        ("Animation", "Animation"),
+        ("Experimental Cinema", "Experimental Cinema"),
+    )
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -22,7 +24,8 @@ class Movie(models.Model):
         default='../static/pp5test/default_user_fqnvic',
         blank=True
     )
-    categories = models.ManyToManyField(Category)
+    category = models.CharField(
+        max_length=32, choices=genre_category)
 
     class Meta:
         ordering = ['-created_at']

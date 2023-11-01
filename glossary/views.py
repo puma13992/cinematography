@@ -31,6 +31,6 @@ class GlossaryDetail(generics.RetrieveUpdateDestroyAPIView):
         elif self.request.method == 'DELETE':
             # Only users with IsOwner authorisation can delete
             return [IsOwnerGlossary()]
-        
+     
         else:
             return [IsAuthenticatedOrReadOnly()]
