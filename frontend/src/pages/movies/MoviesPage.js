@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Container, Form } from "react-bootstrap";
 import Movie from "./Movie";
 import Asset from "../../components/Asset";
-import styles from "../../styles/MoviePages.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
@@ -45,7 +44,7 @@ function MoviesPage({ message = "", filter = "" }) {
 	}, [filter, query, category, pathname]);
 
 	return (
-		<div className={styles.Header}>
+		<div>
 			<Row>
 				<Col className="my-auto py-2 p-md-2">
 					<Container>

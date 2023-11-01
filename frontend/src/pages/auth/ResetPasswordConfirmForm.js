@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-
-import styles from "../../styles/Forms.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
-
 import axios from "axios";
 
 const ResetPasswordConfirmForm = () => {
@@ -45,8 +40,8 @@ const ResetPasswordConfirmForm = () => {
 	};
 
 	return (
-		<div className={appStyles.App}>
-			<Row className={styles.Header}>
+		<div>
+			<Row>
 				<Col className="my-auto py-2 p-md-2" md={12}>
 					<Container>
 						<h1>Reset password</h1>

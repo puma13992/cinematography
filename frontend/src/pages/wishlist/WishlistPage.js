@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, CardDeck } from "react-bootstrap";
 import Movie from "../movies/Movie";
 import Asset from "../../components/Asset";
-import styles from "../../styles/WishlistPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
@@ -33,7 +32,7 @@ function WishlistPage({ message, filter = "" }) {
 	return (
 		<div>
 			<Col className="my-auto py-2 p-md-2">
-				<Container className={styles.Header}>
+				<Container>
 					<h1>
 						<i className="fa-solid fa-heart"></i> Wishlist
 					</h1>

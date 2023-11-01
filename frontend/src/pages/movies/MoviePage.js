@@ -5,7 +5,6 @@ import { Col, Row, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Movie from "./Movie";
-import styles from "../../styles/MoviePages.module.css";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -39,7 +38,7 @@ function MoviePage() {
 	}, [id]);
 
 	return (
-		<Row className={styles.Header}>
+		<Row>
 			<Col className="py-2">
 				<Movie {...movie.results[0]} setMovies={setMovie} moviePage />
 				<Container className="pb-4 pt-4">

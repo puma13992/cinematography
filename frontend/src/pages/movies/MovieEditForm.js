@@ -103,7 +103,7 @@ function MovieEditForm() {
 
 	return (
 		<div>
-			<Row className={styles.Header}>
+			<Row>
 				<Col className="my-auto py-2 p-md-2" md={12}>
 					<Container>
 						<h1>Edit a movie</h1>
