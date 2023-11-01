@@ -55,6 +55,7 @@ function MoviePage() {
 					) : null}
 					{comments.results.length ? (
 						<InfiniteScroll
+							className="overflow-hidden"
 							children={comments.results.map((comment) => (
 								<Comment
 									key={comment.id}
