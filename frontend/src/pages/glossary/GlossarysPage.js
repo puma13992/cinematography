@@ -9,8 +9,10 @@ import Searchbar from "../../components/Searchbar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import btnStyles from "../../styles/Button.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function GlossarysPage({ message = "", filter = "" }) {
+	const currentUser = useCurrentUser();
 	const [glossary, setGlossary] = useState({ results: [] });
 	const [hasLoaded, setHasLoaded] = useState(false);
 	const { pathname } = useLocation();
@@ -65,19 +67,21 @@ function GlossarysPage({ message = "", filter = "" }) {
 					/>
 				</Container>
 			</Row>
-			<Row>
-				<Col>
-					<Link to="/glossary/create" className="text-dark">
-						<Button
-							variant="outline-light"
-							className={`${btnStyles.ButtonLight} text-dark`}
-							block
-						>
-							<i className="fa-solid fa-plus"></i> Add glossary item
-						</Button>
-					</Link>
-				</Col>
-			</Row>
+			{currentUser && (
+				<Row>
+					<Col>
+						<Link to="/glossary/create" className="text-dark">
+							<Button
+								variant="outline-light"
+								className={`${btnStyles.ButtonLight} text-dark`}
+								block
+							>
+								<i className="fa-solid fa-plus"></i> Add glossary item
+							</Button>
+						</Link>
+					</Col>
+				</Row>
+			)}
 
 			<Row className="py-4">
 				<Col>
