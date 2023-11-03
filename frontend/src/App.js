@@ -13,6 +13,10 @@ import MovieEditForm from "./pages/movies/MovieEditForm";
 import MoviePage from "./pages/movies/MoviePage";
 import MoviesPage from "./pages/movies/MoviesPage";
 import WishlistPage from "./pages/wishlist/WishlistPage";
+import GlossarysPage from "./pages/glossary/GlossarysPage";
+import GlossaryPage from "./pages/glossary/GlossaryPage";
+import GlossaryCreateForm from "./pages/glossary/GlossaryCreateForm";
+import GlossaryEditForm from "./pages/glossary/GlossaryEditForm";
 
 function App() {
 	const currentUser = useCurrentUser();
@@ -42,7 +46,24 @@ function App() {
 						render={() => <MovieEditForm />}
 					/>
 					<Route exact path="/movies/:id" render={() => <MoviePage />} />
-					<Route exact path="/glossary" render={() => <h1>Glossary</h1>} />
+					<Route
+						exact
+						path="/glossary"
+						render={() => (
+							<GlossarysPage message="No results found. Adjust the search keyword." />
+						)}
+					/>
+					<Route
+						exact
+						path="/glossary/create"
+						render={() => <GlossaryCreateForm />}
+					/>
+					<Route exact path="/glossary/:id" render={() => <GlossaryPage />} />
+					<Route
+						exact
+						path="/glossary/:id/edit"
+						render={() => <GlossaryEditForm />}
+					/>
 
 					<Route exact path="/signin" render={() => <SignInForm />} />
 					<Route exact path="/signup" render={() => <SignUpForm />} />
