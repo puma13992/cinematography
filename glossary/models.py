@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models import UniqueConstraint
 
 
 class Glossary(models.Model):
@@ -16,14 +15,12 @@ class Glossary(models.Model):
     content = models.TextField(blank=False)
 
     class Meta:
-        constraints = [
-            UniqueConstraint(
-                name="unique_glossary_item",
-                fields=["title"],
-                condition=models.Q(title__isnull=False),
-            )
-        ]
         ordering = ['-updated_at']
-
+    
+    def save(self, *args, **kwargs):
+        # Make the title uppercase before saving
+        self.title = self.title.upper()
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return f'{self.title}'
