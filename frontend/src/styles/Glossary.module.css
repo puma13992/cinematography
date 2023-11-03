@@ -1,0 +1,9 @@
+.FooterText {
+	font-size: 12px;
+}
+
+@media (max-width: 539px) {
+	.AvatarImage {
+		display: none;
+	}
+}
