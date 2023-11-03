@@ -41,7 +41,8 @@ const Movie = (props) => {
 	const handleDelete = async () => {
 		try {
 			await axiosRes.delete(`/movies/${id}/`);
-			history.goBack();
+			history.push("/");
+			setAlert("Movie deleted successfully!", "success");
 		} catch (err) {
 			console.log(err);
 		}
