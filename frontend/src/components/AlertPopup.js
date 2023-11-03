@@ -1,19 +1,24 @@
-// Code from https://github.com/artcuddy/project5-foodsnap-frontend; slightly customized
+// Code from https://github.com/artcuddy/project5-foodsnap-frontend; customized
 
-import { Alert, Container } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import useAlert from "../hooks/useAlert";
 import styles from "../styles/AlertPopup.module.css";
+import { useState } from "react";
 
 const AlertPopup = () => {
 	const { text, type } = useAlert();
+	const [show, setShow] = useState(true);
 
-	if (text && type) {
+	if (text && type && show) {
 		return (
-			<Container>
-				<Alert variant={type} className={`position-absolute ${styles.Alert}`}>
-					{text}
-				</Alert>
-			</Container>
+			<Alert
+				variant={type}
+				className={`position-absolute ${styles.Alert}`}
+				onClose={() => setShow(false)}
+				dismissible
+			>
+				{text}
+			</Alert>
 		);
 	} else {
 		return <></>;
