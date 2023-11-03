@@ -13,8 +13,11 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function MovieEditForm() {
+	useRedirect("loggedOut");
+
 	const [errors, setErrors] = useState({});
 
 	// Movie data

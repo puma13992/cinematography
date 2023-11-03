@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
-
 import btnStyles from "../../styles/Button.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function CommentCreateForm(props) {
+	useRedirect("loggedOut");
+
 	const { movie, setMovie, setComments, profileImage, profile_id } = props;
 	const [content, setContent] = useState("");
 	const { setAlert } = useAlert();

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-
 import btnStyles from "../../styles/Button.module.css";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function CommentEditForm(props) {
+	useRedirect("loggedOut");
+
 	const { id, content, setShowEditForm, setComments } = props;
 
 	const [formContent, setFormContent] = useState(content);

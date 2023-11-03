@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-
 import {
 	Form,
 	Button,
@@ -9,17 +8,18 @@ import {
 	Image,
 	Alert,
 } from "react-bootstrap";
-
 import Upload from "../../assets/upload.png";
-
 import styles from "../../styles/Movie.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function MovieCreateForm() {
+	useRedirect("loggedOut");
+
 	const [errors, setErrors] = useState({});
 
 	// Movie data
