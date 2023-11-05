@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import useAlert from "./useAlert";
 
-// Code from https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useRedirect.js; slightly modified
+// Code from CI walkthrough Moments; slightly modified
 export const useRedirect = (userAuthStatus) => {
 	const history = useHistory();
 	const { setAlert } = useAlert();
