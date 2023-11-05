@@ -1,6 +1,7 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
+import { useHistory } from "react-router-dom";
 
 // Code from CI walkthrough Moments; slightly modified
 // The forwardRef is important!!
@@ -38,6 +39,29 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
 					aria-label="delete"
 				>
 					<i className="fas fa-trash-alt" />
+				</Dropdown.Item>
+			</Dropdown.Menu>
+		</Dropdown>
+	);
+};
+
+export const ProfileEditDropdown = ({ id }) => {
+	const history = useHistory();
+	return (
+		<Dropdown className="ml-auto" drop="left">
+			<Dropdown.Toggle as={ThreeDots} />
+			<Dropdown.Menu>
+				<Dropdown.Item
+					onClick={() => history.push(`/profiles/${id}/edit`)}
+					aria-label="edit-profile"
+				>
+					<i className="fas fa-edit" /> Edit profile
+				</Dropdown.Item>
+				<Dropdown.Item
+					onClick={() => history.push(`/profiles/${id}/edit/password`)}
+					aria-label="edit-password"
+				>
+					<i className="fas fa-key" /> Change password
 				</Dropdown.Item>
 			</Dropdown.Menu>
 		</Dropdown>
