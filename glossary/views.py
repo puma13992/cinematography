@@ -15,6 +15,9 @@ class GlossaryList(generics.ListCreateAPIView):
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
+    filterset_fields = [
+        'created_by__profile',
+    ]
     search_fields = [
         'title',
     ]
