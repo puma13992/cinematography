@@ -14,6 +14,7 @@ class ProfileList(generics.ListAPIView):
     """
     queryset = Profile.objects.annotate(
         movies_count=Count('owner__movie', distinct=True),
+        glossary_count=Count('owner__created_glossary_term', distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
     filter_backends = [
@@ -22,6 +23,7 @@ class ProfileList(generics.ListAPIView):
     ]
     ordering_fields = [
         'movies_count',
+        'glossary_count',
     ]
 
 
@@ -33,5 +35,6 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         movies_count=Count('owner__movie', distinct=True),
+        glossary_count=Count('owner__created_glossary_term', distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
