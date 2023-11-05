@@ -18,6 +18,8 @@ import GlossaryPage from "./pages/glossary/GlossaryPage";
 import GlossaryCreateForm from "./pages/glossary/GlossaryCreateForm";
 import GlossaryEditForm from "./pages/glossary/GlossaryEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
 	const currentUser = useCurrentUser();
@@ -90,6 +92,16 @@ function App() {
 						)}
 					/>
 					<Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+					<Route
+						exact
+						path="/profiles/:id/edit/password"
+						render={() => <UserPasswordForm />}
+					/>
+					<Route
+						exact
+						path="/profiles/:id/edit"
+						render={() => <ProfileEditForm />}
+					/>
 					<Route render={() => <p>Page not found!</p>} />
 				</Switch>
 			</Container>
