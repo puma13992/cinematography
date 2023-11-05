@@ -163,7 +163,7 @@ function ProfilePage() {
 					<Row>
 						<Col>{mainProfile}</Col>
 					</Row>
-					<Row>
+					<Row className="pb-4">
 						<Col lg={6}>{mainProfileMovies}</Col>
 						<Col lg={6}>{mainProfileGlossary}</Col>
 					</Row>
