@@ -10,6 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function GlossarysPage({ message = "", filter = "" }) {
 	const currentUser = useCurrentUser();
@@ -114,6 +115,9 @@ function GlossarysPage({ message = "", filter = "" }) {
 					)}
 				</Col>
 			</Row>
+			<div>
+				<ScrollToTop />
+			</div>
 		</div>
 	);
 }

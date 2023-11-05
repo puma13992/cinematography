@@ -3,6 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Glossary from "./Glossary";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function GlossaryPage() {
 	const { id } = useParams();
@@ -32,6 +33,9 @@ function GlossaryPage() {
 					glossaryPage
 				/>
 			</Col>
+			<div>
+				<ScrollToTop />
+			</div>
 		</Row>
 	);
 }
