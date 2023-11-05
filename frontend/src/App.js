@@ -17,6 +17,7 @@ import GlossarysPage from "./pages/glossary/GlossarysPage";
 import GlossaryPage from "./pages/glossary/GlossaryPage";
 import GlossaryCreateForm from "./pages/glossary/GlossaryCreateForm";
 import GlossaryEditForm from "./pages/glossary/GlossaryEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
 	const currentUser = useCurrentUser();
@@ -88,6 +89,7 @@ function App() {
 							/>
 						)}
 					/>
+					<Route exact path="/profiles/:id" render={() => <ProfilePage />} />
 					<Route render={() => <p>Page not found!</p>} />
 				</Switch>
 			</Container>
