@@ -8,7 +8,7 @@ import {
 	Image,
 	Alert,
 } from "react-bootstrap";
-import styles from "../../styles/Movie.module.css";
+import styles from "../../styles/Forms.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";

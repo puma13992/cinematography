@@ -9,7 +9,7 @@ import {
 	Alert,
 } from "react-bootstrap";
 import Upload from "../../assets/upload.png";
-import styles from "../../styles/Movie.module.css";
+import styles from "../../styles/Forms.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom";

@@ -10,25 +10,9 @@
 	font-weight: bold;
 }
 
-.Upload:hover {
-	transform: scale(1.1);
-}
-
-.Cursor:hover {
-	cursor: pointer;
-}
-
 .Iconsright {
 	margin-right: 5px;
 	margin-left: 5px;
-}
-
-.Overflow {
-	overflow: hidden;
-}
-
-.Uploadbutton {
-	display: none;
 }
 
 .Heart:hover {
@@ -37,12 +21,6 @@
 
 .HeartOutline:hover {
 	color: #0d6efd;
-}
-
-.Image {
-	max-height: 40vh;
-	max-width: 100%;
-	object-fit: contain;
 }
 
 .CreateUpdateText {
