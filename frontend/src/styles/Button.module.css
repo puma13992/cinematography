@@ -9,3 +9,22 @@
 .ButtonDark:hover {
 	text-decoration: underline;
 }
+
+/* Code from https://github.com/jkingportfolio/ci_pp5_tick_it_react/; slightly customizied */
+.ScrollButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #343a40;
+	color: white;
+	border: none;
+	outline: none;
+	padding: 10px 15px;
+	font-size: 20px;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.ScrollButton:hover {
+	opacity: 0.7;
+}
