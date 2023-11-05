@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { Col, Row, Container } from "react-bootstrap";
-
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Movie from "./Movie";
@@ -11,6 +9,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function MoviePage() {
 	const { id } = useParams();
@@ -55,7 +54,6 @@ function MoviePage() {
 					) : null}
 					{comments.results.length ? (
 						<InfiniteScroll
-							className="overflow-hidden"
 							children={comments.results.map((comment) => (
 								<Comment
 									key={comment.id}
@@ -76,6 +74,9 @@ function MoviePage() {
 					)}
 				</Container>
 			</Col>
+			<div>
+				<ScrollToTop />
+			</div>
 		</Row>
 	);
 }

@@ -8,6 +8,7 @@ import Searchbar from "../../components/Searchbar";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function WishlistPage({ message, filter = "" }) {
 	// Pass user information as a prop
@@ -136,6 +137,9 @@ function WishlistPage({ message, filter = "" }) {
 					)}
 				</Col>
 			</Row>
+			<div>
+				<ScrollToTop />
+			</div>
 		</div>
 	);
 }

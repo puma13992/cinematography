@@ -8,6 +8,7 @@ import NoResults from "../../assets/no-results.png";
 import Searchbar from "../../components/Searchbar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function MoviesPage({ message = "", filter = "" }) {
 	const [movies, setMovies] = useState({ results: [] });
@@ -133,6 +134,9 @@ function MoviesPage({ message = "", filter = "" }) {
 					)}
 				</Col>
 			</Row>
+			<div>
+				<ScrollToTop />
+			</div>
 		</div>
 	);
 }
