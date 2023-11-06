@@ -50,18 +50,20 @@ const Glossary = (props) => {
 			>
 				<div>{title}</div>
 				<div className="ml-auto">
-					<MoreDropdown
-						handleEdit={handleEdit}
-						handleDelete={
-							is_created_by
-								? handleDelete
-								: () =>
-										setAlert(
-											"Only the creator of the glossary item can delete it.",
-											"warning"
-										)
-						}
-					/>
+					{currentUser && (
+						<MoreDropdown
+							handleEdit={handleEdit}
+							handleDelete={
+								is_created_by
+									? handleDelete
+									: () =>
+											setAlert(
+												"Only the creator of the glossary item can delete it.",
+												"warning"
+											)
+							}
+						/>
+					)}
 				</div>
 			</Accordion.Toggle>
 			<Accordion.Collapse eventKey={id}>
