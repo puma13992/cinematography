@@ -20,6 +20,7 @@ import GlossaryEditForm from "./pages/glossary/GlossaryEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import WelcomePage from "./pages/welcome/WelcomePage";
 import NotFound from "./components/NotFound";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
 			<NavBar />
 			<Container className={styles.Main}>
 				<Switch>
-					<Route exact path="/" render={() => <h1>Welcome</h1>} />
+					<Route exact path="/" render={() => <WelcomePage />} />
 					<Route
 						exact
 						path="/movies"
