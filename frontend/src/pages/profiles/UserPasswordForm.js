@@ -9,8 +9,10 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
+import useAlert from "../../hooks/useAlert";
 
 const UserPasswordForm = () => {
+	const { setAlert } = useAlert();
 	const history = useHistory();
 	const { id } = useParams();
 	const currentUser = useCurrentUser();
@@ -42,6 +44,7 @@ const UserPasswordForm = () => {
 		try {
 			await axiosRes.post("/dj-rest-auth/password/change/", userData);
 			history.goBack();
+			setAlert("Password changed successfully!", "success");
 		} catch (err) {
 			console.log(err);
 			setErrors(err.response?.data);
@@ -58,7 +61,7 @@ const UserPasswordForm = () => {
 							<Form.Group>
 								<Form.Label>New password</Form.Label>
 								<Form.Control
-									placeholder="new password"
+									placeholder="New password"
 									type="password"
 									value={new_password1}
 									onChange={handleChange}
@@ -73,7 +76,7 @@ const UserPasswordForm = () => {
 							<Form.Group>
 								<Form.Label>Confirm password</Form.Label>
 								<Form.Control
-									placeholder="confirm new password"
+									placeholder="Confirm new password"
 									type="password"
 									value={new_password2}
 									onChange={handleChange}
