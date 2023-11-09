@@ -3,11 +3,11 @@ from rest_framework import serializers
 from wishlists.models import Wishlist
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class WishlistSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Wishlist model
-    The create method handles the unique constraint on 'owner' and 'movie'
+    Serializer for the Wishlist model;
+    The create method handles the unique constraint on 'owner' and 'movie';
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     owner = serializers.ReadOnlyField(source='owner.username')
 

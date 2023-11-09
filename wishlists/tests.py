@@ -5,12 +5,15 @@ from movies.models import Movie
 from .models import Wishlist
 
 
-# Set up for testing
 class TestDataSetupMixin:
+    """
+    Set up for testing
+    """
 
     @classmethod
     def setUp(self):
-        self.user = User.objects.create(username='testuser', password='testpassword')
+        self.user = User.objects.create(
+            username='testuser', password='testpassword')
         self.movie = Movie.objects.create(
             owner=self.user,
             title='Test Movie',
@@ -19,11 +22,14 @@ class TestDataSetupMixin:
             content='This is a test movie',
             category='Drama'
         )
-        self.wishlist = Wishlist.objects.create(owner=self.user, movie=self.movie)
+        self.wishlist = Wishlist.objects.create(
+            owner=self.user, movie=self.movie)
 
 
-# Tests for wishlist model
 class WishlistModelTestCase(TestDataSetupMixin, TestCase):
+    """
+    Tests for wishlist model
+    """
 
     def test_wishlist_creation(self):
         self.assertEqual(self.wishlist.owner, self.user)
@@ -35,14 +41,19 @@ class WishlistModelTestCase(TestDataSetupMixin, TestCase):
         self.assertEqual(str(self.wishlist), expected_str)
 
     def test_wishlist_unique_together(self):
-        # Try to create a duplicate wishlist entry, which should fail
+        """
+        Try to create a duplicate wishlist entry,
+        which should fail
+        """
         duplicate_wishlist = Wishlist(owner=self.user, movie=self.movie)
         with self.assertRaises(Exception):
             duplicate_wishlist.save()
 
 
-# Tests for wishlist views
 class WishlistAPITestCase(TestDataSetupMixin, APITestCase):
+    """
+    Tests for wishlist list view
+    """
 
     def test_wishlist_list_view(self):
         response = self.client.get('/wishlist/')

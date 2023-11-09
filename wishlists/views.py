@@ -4,10 +4,10 @@ from wishlists.models import Wishlist
 from wishlists.serializers import WishlistSerializer
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class WishlistList(generics.ListCreateAPIView):
     """
-    List all wishlist items or create a wishlist if logged in.
+    List all wishlist items or create a wishlist if logged in;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = WishlistSerializer
@@ -17,10 +17,10 @@ class WishlistList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class WishlistDetail(generics.RetrieveDestroyAPIView):
     """
-    Retrieve a wishlist item or delete it by id if you own it.
+    Retrieve a wishlist item or delete it by id if you own it;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = WishlistSerializer
