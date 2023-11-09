@@ -6,11 +6,11 @@ from .models import Profile
 from .serializers import ProfileSerializer
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class ProfileList(generics.ListAPIView):
     """
-    List all profiles.
-    No create view as profile creation is handled by django signals.
+    List all profiles;
+    No create view as profile creation is handled by django signals;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     queryset = Profile.objects.annotate(
         movies_count=Count('owner__movie', distinct=True),
@@ -27,10 +27,10 @@ class ProfileList(generics.ListAPIView):
     ]
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
-    Retrieve or update a profile if you're the owner.
+    Retrieve or update a profile if you're the owner;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(

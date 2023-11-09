@@ -4,8 +4,11 @@ from django.contrib.auth.models import User
 from django_resized import ResizedImageField
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class Profile(models.Model):
+    """
+    Profile model, related to User and Movie;
+    Code from CI walkthrough Django Rest Framework; slightly modified
+    """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
