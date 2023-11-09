@@ -99,7 +99,7 @@ const NavBar = () => {
 			<Container>
 				<NavLink to="/">
 					<Navbar.Brand className={styles.NavbarBrand}>
-						<img src={logo} alt="logo" height="45" />
+						<img src={logo} alt="logo" />
 					</Navbar.Brand>
 					<AlertPopup />
 				</NavLink>

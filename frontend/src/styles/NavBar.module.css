@@ -1,3 +1,7 @@
+.NavbarBrand img {
+	height: 45px;
+}
+
 .NavbarBrand:hover {
 	transform: scale(1.1);
 }
