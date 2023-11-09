@@ -125,3 +125,31 @@ class GlossaryDetailViewTests(APITestCase):
     def test_logged_out_user_cant_delete_glossary_item(self):
         response = self.client.delete('/glossary/1/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_logged_in_user_can_update_own_glossary_item(self):
+        self.client.login(username='testuser', password='testpassword')
+        glossary = Glossary.objects.get(pk=1)
+        updated_data = {'content': 'new content'}
+        serializer = GlossarySerializer(instance=glossary, data=updated_data, partial=True)
+    
+        if serializer.is_valid():
+            response = self.client.patch('/glossary/1/', data=updated_data)
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            glossary.refresh_from_db()
+            self.assertEqual(glossary.content, 'new content')
+        else:
+            self.fail(serializer.errors)
+
+    def test_user_can_update_someone_elses_glossary_item(self):
+        self.client.login(username='testuser2', password='testpassword2')
+        glossary = Glossary.objects.get(pk=1)
+        updated_data = {'content': 'an edited content'}
+        serializer = GlossarySerializer(instance=glossary, data=updated_data, partial=True)
+   
+        if serializer.is_valid():
+            response = self.client.patch('/glossary/1/', data=updated_data)
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            glossary.refresh_from_db()
+            self.assertEqual(glossary.content, 'an edited content')
+        else:
+            self.fail(serializer.errors)

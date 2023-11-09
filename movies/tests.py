@@ -4,6 +4,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import Movie
+from .serializers import MovieSerializer
 
 
 # Set up for testing
@@ -136,3 +137,17 @@ class MovieDetailViewTests(TestDataSetupMixin, APITestCase):
         movie = Movie.objects.get(id=1)
         response = self.client.delete('/movies/1/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_logged_in_user_can_update_own_movie(self):
+        self.client.login(username='testuser', password='testpassword')
+        movie = Movie.objects.get(pk=1)
+        updated_data = {'title': 'new title'}
+        serializer = MovieSerializer(instance=movie, data=updated_data, partial=True)
+    
+        if serializer.is_valid():
+            response = self.client.patch(f'/movies/1/', data=updated_data)
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            movie.refresh_from_db()
+            self.assertEqual(movie.title, 'new title')
+        else:
+            self.fail(serializer.errors)
