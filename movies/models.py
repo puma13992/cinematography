@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Movie(models.Model):
+    """
+    Model for movies with five categories
+    """
 
     genre_category = (
         ("Drama", "Drama"),

@@ -3,8 +3,11 @@ from wishlists.models import Wishlist
 from .models import Movie
 
 
-# Code basic from CI walkthrough Django Rest Framework; modified
 class MovieSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the movie model;
+    Code basic from CI walkthrough Django Rest Framework
+    """
 
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()

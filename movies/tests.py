@@ -1,18 +1,20 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import Movie
 from .serializers import MovieSerializer
 
 
-# Set up for testing
 class TestDataSetupMixin:
+    """
+    Set up for testing
+    """
 
     @classmethod
     def setUpTestData(cls):
-        test_user = User.objects.create_user(username='testuser', password='testpassword')
+        test_user = User.objects.create_user(
+            username='testuser', password='testpassword')
         test_movie = Movie.objects.create(
             owner=test_user,
             title='Test Movie',
@@ -23,8 +25,10 @@ class TestDataSetupMixin:
         )
 
 
-# Tests for movie model
 class MovieModelTest(TestDataSetupMixin, TestCase):
+    """
+    Tests for movie model
+    """
 
     def test_owner_label(self):
         movie = Movie.objects.get(id=1)
@@ -67,8 +71,10 @@ class MovieModelTest(TestDataSetupMixin, TestCase):
         self.assertEqual(field_label, 'category')
 
 
-# Tests for movie list view
 class MovieListViewTests(TestDataSetupMixin, APITestCase):
+    """
+    Tests for movie list view
+    """
 
     def test_can_list_movies(self):
         response = self.client.get('/movies/')
@@ -98,13 +104,15 @@ class MovieListViewTests(TestDataSetupMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
-# Tests for movie detail view
 class MovieDetailViewTests(TestDataSetupMixin, APITestCase):
+    """
+    Tests for movie detail view
+    """
 
     def test_can_retrieve_movie_using_valid_id(self):
         response = self.client.get('/movies/1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
- 
+
     def test_cant_retrieve_movie_using_invalid_id(self):
         response = self.client.get('/movies/999/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
@@ -142,8 +150,9 @@ class MovieDetailViewTests(TestDataSetupMixin, APITestCase):
         self.client.login(username='testuser', password='testpassword')
         movie = Movie.objects.get(pk=1)
         updated_data = {'title': 'new title'}
-        serializer = MovieSerializer(instance=movie, data=updated_data, partial=True)
-    
+        serializer = MovieSerializer(
+            instance=movie, data=updated_data, partial=True)
+
         if serializer.is_valid():
             response = self.client.patch(f'/movies/1/', data=updated_data)
             self.assertEqual(response.status_code, status.HTTP_200_OK)

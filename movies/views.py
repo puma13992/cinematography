@@ -6,8 +6,11 @@ from .models import Movie
 from .serializers import MovieSerializer
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class MovieList(generics.ListCreateAPIView):
+    """
+    Movie list view with filter and search functionality;
+    Code from CI walkthrough Django Rest Framework; slightly modified
+    """
     serializer_class = MovieSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Movie.objects.annotate(
@@ -42,8 +45,11 @@ class MovieList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Movie detail view with filter and search functionality;
+    Code from CI walkthrough Django Rest Framework; slightly modified
+    """
     serializer_class = MovieSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Movie.objects.annotate(
