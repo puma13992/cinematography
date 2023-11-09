@@ -5,10 +5,10 @@ from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class CommentList(generics.ListCreateAPIView):
     """
-    List comments or create a comment if logged in.
+    List comments or create a comment if logged in;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -20,10 +20,10 @@ class CommentList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-# Code from CI walkthrough Django Rest Framework
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve a comment, or update or delete it by id if you own it.
+    Retrieve a comment, or update or delete it by id if you own it;
+    Code from CI walkthrough Django Rest Framework
     """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer

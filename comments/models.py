@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 from movies.models import Movie
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class Comment(models.Model):
     """
-    Comment model, related to User and Movie
+    Comment model, related to User and Movie;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)

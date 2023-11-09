@@ -3,11 +3,11 @@ from rest_framework import serializers
 from .models import Comment
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class CommentSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Comment model
-    Adds three extra fields when returning a list of Comment instances
+    Serializer for the Comment model;
+    Adds three extra fields when returning a list of Comment instances;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -34,10 +34,10 @@ class CommentSerializer(serializers.ModelSerializer):
         ]
 
 
-# Code from CI walkthrough Django Rest Framework; slightly modified
 class CommentDetailSerializer(CommentSerializer):
     """
-    Serializer for the Comment model used in Detail view
-    Movie is a read only field so that we dont have to set it on each update
+    Serializer for the Comment model used in Detail view;
+    Movie is a read only field so that we dont have to set it on each update;
+    Code from CI walkthrough Django Rest Framework; slightly modified
     """
     movie = serializers.ReadOnlyField(source='movie.id')
