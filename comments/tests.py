@@ -1,18 +1,20 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from movies.models import Movie
 from .models import Comment
 
 
-# Set up for testing
 class TestDataSetupMixin:
+    """
+    Set up for testing
+    """
 
     @classmethod
     def setUpTestData(cls):
-        test_user = User.objects.create_user(username='testuser', password='testpassword')
+        test_user = User.objects.create_user(
+            username='testuser', password='testpassword')
         test_movie = Movie.objects.create(
             owner=test_user,
             title='Test Movie',
@@ -28,8 +30,11 @@ class TestDataSetupMixin:
             content='This is a test comment'
         )
 
-# Tests for comment model
+
 class CommentModelTest(TestDataSetupMixin, TestCase):
+    """
+    Tests for comments model
+    """
 
     def test_content_label(self):
         comment = Comment.objects.get(id=1)
@@ -66,13 +71,15 @@ class CommentModelTest(TestDataSetupMixin, TestCase):
         self.assertEqual(str(comment), comment.content)
 
 
-# Tests for comment list view
 class CommentListViewTests(TestDataSetupMixin, APITestCase):
+    """
+    Tests for comments list view
+    """
 
     def test_can_list_comments(self):
         response = self.client.get('/comments/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    
+
     def test_logged_in_user_can_post_comment(self):
         self.client.login(username='testuser', password='testpassword')
         test_movie = Movie.objects.get(id=1)
@@ -83,7 +90,7 @@ class CommentListViewTests(TestDataSetupMixin, APITestCase):
             }
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-    
+
     def test_logged_out_user_cant_create_comment(self):
         test_movie = Movie.objects.get(id=1)
         response = self.client.post(
@@ -92,13 +99,15 @@ class CommentListViewTests(TestDataSetupMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
-# Tests for comment detail view
 class CommentDetailViewTests(TestDataSetupMixin, APITestCase):
+    """
+    Tests for comments detail view
+    """
 
     def test_can_retrieve_comment_using_valid_id(self):
         response = self.client.get('/comments/1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
- 
+
     def test_cant_retrieve_comment_using_invalid_id(self):
         response = self.client.get('/comments/999/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
