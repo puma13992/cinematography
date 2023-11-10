@@ -37,7 +37,7 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/movies/create"
     >
-      <i class="fa-solid fa-plus"></i>Add movie
+      <i className="fa-solid fa-plus"></i>Add movie
     </NavLink>
   );
 
@@ -48,7 +48,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/wishlist"
       >
-        <i class="fa-solid fa-heart"></i> Wishlist
+        <i className="fa-solid fa-heart"></i> Wishlist
       </NavLink>
       <NavLink
         className={`text-light px-3 py-2 ${styles.NavLink}`}
@@ -76,14 +76,14 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i class="fas fa-sign-in-alt"></i> Sign in
+        <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
       <NavLink
         className={`text-light px-3 py-2 ${styles.NavLink}`}
         activeClassName={styles.Active}
         to="/signup"
       >
-        <i class="fa-solid fa-user-plus"></i> Sign up
+        <i className="fa-solid fa-user-plus"></i> Sign up
       </NavLink>
     </>
   );
@@ -117,7 +117,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i class="fa-solid fa-house"></i> Home
+              <i className="fa-solid fa-house"></i> Home
             </NavLink>
             <NavLink
               exact
@@ -125,7 +125,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/movies"
             >
-              <i class="fa-solid fa-film"></i> Movies
+              <i className="fa-solid fa-film"></i> Movies
             </NavLink>
             <NavLink
               exact
@@ -133,7 +133,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/glossary"
             >
-              <i class="fa-solid fa-book"></i> Glossary
+              <i className="fa-solid fa-book"></i> Glossary
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

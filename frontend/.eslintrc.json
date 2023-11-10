@@ -15,7 +15,9 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/no-children-prop": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "react": {
