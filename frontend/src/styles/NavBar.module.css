@@ -1,15 +1,15 @@
 .NavbarBrand img {
-	height: 45px;
+  height: 45px;
 }
 
 .NavbarBrand:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .Active {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .NavLink:hover i {
-	color: #cfe2ff;
+  color: #cfe2ff;
 }

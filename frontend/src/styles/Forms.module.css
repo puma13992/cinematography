@@ -1,17 +1,17 @@
 .Image {
-	max-height: 40vh;
-	max-width: 100%;
-	object-fit: contain;
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .Upload:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .Uploadbutton {
-	display: none;
+  display: none;
 }
 
 .Cursor:hover {
-	cursor: pointer;
+  cursor: pointer;
 }

@@ -1,28 +1,28 @@
 .Title {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .Title:hover {
-	text-decoration: underline #0d6efd;
+  text-decoration: underline #0d6efd;
 }
 
 .Subtitles {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .Iconsright {
-	margin-right: 5px;
-	margin-left: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .Heart:hover {
-	color: #0d6efd;
+  color: #0d6efd;
 }
 
 .HeartOutline:hover {
-	color: #0d6efd;
+  color: #0d6efd;
 }
 
 .CreateUpdateText {
-	font-size: 11px;
+  font-size: 11px;
 }
