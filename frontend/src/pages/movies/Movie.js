@@ -153,7 +153,7 @@ const Movie = (props) => {
               placement="top"
               overlay={
                 <Tooltip>
-                  You can't add your own movie to your wishlist!
+                  You can&apos;t add your own movie to your wishlist!
                 </Tooltip>
               }
             >
