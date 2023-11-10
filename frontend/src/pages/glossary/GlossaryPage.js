@@ -6,38 +6,38 @@ import Glossary from "./Glossary";
 import ScrollToTop from "../../components/ScrollToTop";
 
 function GlossaryPage() {
-	const { id } = useParams();
-	const [glossary, setGlossary] = useState({ results: [] });
+  const { id } = useParams();
+  const [glossary, setGlossary] = useState({ results: [] });
 
-	useEffect(() => {
-		const handleMount = async () => {
-			try {
-				const [{ data: glossary }] = await Promise.all([
-					axiosReq.get(`/glossary/${id}`),
-				]);
-				setGlossary({ results: [glossary] });
-			} catch (err) {
-				console.log(err);
-			}
-		};
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: glossary }] = await Promise.all([
+          axiosReq.get(`/glossary/${id}`),
+        ]);
+        setGlossary({ results: [glossary] });
+      } catch (err) {
+        // console.log(err);
+      }
+    };
 
-		handleMount();
-	}, [id]);
+    handleMount();
+  }, [id]);
 
-	return (
-		<Row>
-			<Col className="py-2">
-				<Glossary
-					{...glossary.results[0]}
-					setGlossary={setGlossary}
-					glossaryPage
-				/>
-			</Col>
-			<div>
-				<ScrollToTop />
-			</div>
-		</Row>
-	);
+  return (
+    <Row>
+      <Col className="py-2">
+        <Glossary
+          {...glossary.results[0]}
+          setGlossary={setGlossary}
+          glossaryPage
+        />
+      </Col>
+      <div>
+        <ScrollToTop />
+      </div>
+    </Row>
+  );
 }
 
 export default GlossaryPage;

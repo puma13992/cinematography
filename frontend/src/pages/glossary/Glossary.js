@@ -9,88 +9,89 @@ import useAlert from "../../hooks/useAlert";
 import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Glossary = (props) => {
-	const {
-		id,
-		profile_id,
-		profile_image,
-		created_by,
-		updated_by,
-		title,
-		content,
-		created_at,
-		updated_at,
-	} = props;
+  const {
+    id,
+    profile_id,
+    profile_image,
+    created_by,
+    updated_by,
+    title,
+    content,
+    created_at,
+    updated_at,
+  } = props;
 
-	const currentUser = useCurrentUser();
-	const is_created_by = currentUser?.username === created_by;
-	const history = useHistory();
-	const { setAlert } = useAlert();
+  const currentUser = useCurrentUser();
+  const is_created_by = currentUser?.username === created_by;
+  const history = useHistory();
+  const { setAlert } = useAlert();
 
-	const handleEdit = () => {
-		history.push(`/glossary/${id}/edit`);
-	};
+  const handleEdit = () => {
+    history.push(`/glossary/${id}/edit`);
+  };
 
-	const handleDelete = async () => {
-		try {
-			await axiosRes.delete(`/glossary/${id}/`);
-			history.push("/");
-			setAlert("Glossary item deleted successfully!", "success");
-		} catch (err) {
-			console.log(err);
-		}
-	};
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/glossary/${id}/`);
+      history.push("/");
+      setAlert("Glossary item deleted successfully!", "success");
+    } catch (err) {
+      // console.log(err);
+      setAlert(err.message, "error");
+    }
+  };
 
-	return (
-		<Accordion className="py-2">
-			<Accordion.Toggle
-				as={Button}
-				variant="dark link"
-				className="btn btn-dark btn-block d-flex align-items-center"
-				eventKey={id}
-			>
-				<div>{title}</div>
-				<div className="ml-auto">
-					{currentUser && (
-						<MoreDropdown
-							handleEdit={handleEdit}
-							handleDelete={
-								is_created_by
-									? handleDelete
-									: () =>
-											setAlert(
-												"Only the creator of the glossary item can delete it.",
-												"warning"
-											)
-							}
-						/>
-					)}
-				</div>
-			</Accordion.Toggle>
-			<Accordion.Collapse eventKey={id}>
-				<div className="py-4">
-					{content && <div className="pb-1">{content}</div>} <hr></hr>
-					<Media className="align-items-center justify-content-between">
-						<Link to={`/profiles/${profile_id}`} className={styles.FooterText}>
-							<span className="text-dark">Created by: </span>
-							<span className={styles.AvatarImage}>
-								<Avatar src={profile_image} height={35} />
-							</span>
-							<span className="text-dark">{created_by} </span>
-							<span className="text-dark">({created_at})</span>
-						</Link>
-						<Link to={`/profiles/${profile_id}`} className={styles.FooterText}>
-							<span className="text-dark">Updated by: </span>
-							<span className={styles.AvatarImage}>
-								<Avatar src={profile_image} height={35} />
-							</span>
-							<span className="text-dark">{updated_by} </span>
-							<span className="text-dark">({updated_at})</span>
-						</Link>
-					</Media>
-				</div>
-			</Accordion.Collapse>
-		</Accordion>
-	);
+  return (
+    <Accordion className="py-2">
+      <Accordion.Toggle
+        as={Button}
+        variant="dark link"
+        className="btn btn-dark btn-block d-flex align-items-center"
+        eventKey={id}
+      >
+        <div>{title}</div>
+        <div className="ml-auto">
+          {currentUser && (
+            <MoreDropdown
+              handleEdit={handleEdit}
+              handleDelete={
+                is_created_by
+                  ? handleDelete
+                  : () =>
+                      setAlert(
+                        "Only the creator of the glossary item can delete it.",
+                        "warning"
+                      )
+              }
+            />
+          )}
+        </div>
+      </Accordion.Toggle>
+      <Accordion.Collapse eventKey={id}>
+        <div className="py-4">
+          {content && <div className="pb-1">{content}</div>} <hr></hr>
+          <Media className="align-items-center justify-content-between">
+            <Link to={`/profiles/${profile_id}`} className={styles.FooterText}>
+              <span className="text-dark">Created by: </span>
+              <span className={styles.AvatarImage}>
+                <Avatar src={profile_image} height={35} />
+              </span>
+              <span className="text-dark">{created_by} </span>
+              <span className="text-dark">({created_at})</span>
+            </Link>
+            <Link to={`/profiles/${profile_id}`} className={styles.FooterText}>
+              <span className="text-dark">Updated by: </span>
+              <span className={styles.AvatarImage}>
+                <Avatar src={profile_image} height={35} />
+              </span>
+              <span className="text-dark">{updated_by} </span>
+              <span className="text-dark">({updated_at})</span>
+            </Link>
+          </Media>
+        </div>
+      </Accordion.Collapse>
+    </Accordion>
+  );
 };
 
 export default Glossary;
