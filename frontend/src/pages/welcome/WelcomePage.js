@@ -203,7 +203,7 @@ function WelcomePage({ message = "" }) {
               )}
             </Col>
           </Row>
-          <Row className="pb-4">
+          <Row className="py-4">
             <Col>
               <Button
                 variant="outline-light"

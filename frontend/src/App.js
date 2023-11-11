@@ -33,7 +33,13 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <WelcomePage />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <WelcomePage message="No results found. Adjust the search keyword." />
+            )}
+          />
           <Route
             exact
             path="/movies"
