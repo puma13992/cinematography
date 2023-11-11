@@ -12,6 +12,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import AlertPopup from "../components/AlertPopup";
 import useAlert from "../hooks/useAlert";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -24,6 +25,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
       setAlert("You have succesfully logged out !", "success");
     } catch (err) {
       // console.log(err);
