@@ -41,7 +41,7 @@ urlpatterns = [
         name="password_reset",
     ),
     path(
-        "dj-rest-auth/password/reset/confirm/<uid>/<token>/",
+        "api/dj-rest-auth/password/reset/confirm/<uid>/<token>/",
         PasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),

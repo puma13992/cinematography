@@ -99,7 +99,7 @@ function ProfilePage() {
   const mainProfileMovies = (
     <>
       <Container>
-        <h4 className="text-center pb-2">{profile?.owner}&apos;s movies:</h4>
+        <h4 className="text-center py-4">{profile?.owner}&apos;s movies:</h4>
         {profileMovies.results.length ? (
           <InfiniteScroll
             children={profileMovies.results.map((movie) => (
@@ -131,7 +131,7 @@ function ProfilePage() {
   const mainProfileGlossary = (
     <>
       <Container>
-        <h4 className="text-center pb-2">
+        <h4 className="text-center py-4">
           {profile?.owner}&apos;s glossary items:
         </h4>
         {profileGlossary.results.length ? (
