@@ -9,11 +9,13 @@ import Searchbar from "../../components/Searchbar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ScrollToTop from "../../components/ScrollToTop";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function MoviesPage({ message = "", filter = "" }) {
   const [movies, setMovies] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser();
 
   const maxContentLength = 150;
 
@@ -42,7 +44,7 @@ function MoviesPage({ message = "", filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, category, pathname]);
+  }, [filter, query, category, pathname, currentUser]);
 
   return (
     <div>

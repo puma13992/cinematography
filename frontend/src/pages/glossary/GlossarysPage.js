@@ -46,7 +46,7 @@ function GlossarysPage({ message = "", filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <div>
