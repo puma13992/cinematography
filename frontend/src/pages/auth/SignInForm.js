@@ -6,6 +6,7 @@ import styles from "../../styles/Forms.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import useAlert from "../../hooks/useAlert";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -26,6 +27,7 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data);
       history.push("/");
       setAlert(`${username}, you have succesfully logged in!`, "success");
     } catch (err) {
