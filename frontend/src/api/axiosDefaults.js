@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = 'https://cinematography-455aca732715.herokuapp.com/';
+axios.defaults.baseURL = "/api";
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
 axios.defaults.withCredentials = true;
 
