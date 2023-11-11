@@ -9,18 +9,16 @@ import { AlertProvider } from "./contexts/AlertContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Router>
-			<AlertProvider>
-				<CurrentUserProvider>
-					<ProfileDataProvider>
-						<App />
-					</ProfileDataProvider>
-				</CurrentUserProvider>
-			</AlertProvider>
-		</Router>
-	</React.StrictMode>,
-	document.getElementById("root")
+  <Router>
+    <AlertProvider>
+      <CurrentUserProvider>
+        <ProfileDataProvider>
+          <App />
+        </ProfileDataProvider>
+      </CurrentUserProvider>
+    </AlertProvider>
+  </Router>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
