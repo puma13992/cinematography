@@ -91,7 +91,7 @@ function SignInForm() {
                     </Alert>
                   ))}
                 </Col>
-                <Col className="my-auto py-2" lg={6} md={12}>
+                <Col className="my-auto py-2" md={12}>
                   <Button
                     variant="dark"
                     type="submit"
@@ -99,20 +99,6 @@ function SignInForm() {
                     block
                   >
                     Sign in
-                  </Button>
-                </Col>
-                <Col className="my-auto py-2" lg={6} md={12}>
-                  <Button
-                    variant="outline-light"
-                    className={btnStyles.ButtonLight}
-                    block
-                  >
-                    <Link
-                      to="/dj-rest-auth/password/reset"
-                      className="text-dark"
-                    >
-                      Lost password?
-                    </Link>
                   </Button>
                 </Col>
               </Row>

@@ -7,8 +7,6 @@ import "./api/axiosDefaults";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-import ResetPasswordForm from "./pages/auth/ResetPasswordForm";
-import ResetPasswordConfirmForm from "./pages/auth/ResetPasswordConfirmForm";
 import MovieCreateForm from "./pages/movies/MovieCreateForm";
 import MovieEditForm from "./pages/movies/MovieEditForm";
 import MoviePage from "./pages/movies/MoviePage";
@@ -79,16 +77,6 @@ function App() {
 
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route
-            exact
-            path="/dj-rest-auth/password/reset/"
-            render={() => <ResetPasswordForm />}
-          />
-          <Route
-            exact
-            path="/dj-rest-auth/password/reset/confirm/:uid/:token/"
-            render={() => <ResetPasswordConfirmForm />}
-          />
 
           <Route
             exact

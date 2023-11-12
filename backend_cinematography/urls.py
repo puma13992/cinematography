@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 from .views import logout_route
 
 
@@ -35,16 +34,6 @@ urlpatterns = [
     path("api/", include("comments.urls")),
     path("api/", include("wishlists.urls")),
     path("api/", include("glossary.urls")),
-    path(
-        "api/dj-rest-auth/password/reset/",
-        PasswordResetView.as_view(),
-        name="password_reset",
-    ),
-    path(
-        "api/dj-rest-auth/password/reset/confirm/<uid>/<token>/",
-        PasswordResetConfirmView.as_view(),
-        name="password_reset_confirm",
-    ),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
