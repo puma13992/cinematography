@@ -7,12 +7,11 @@ import useAlert from "../../hooks/useAlert";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
-    email: "",
     username: "",
     password1: "",
     password2: "",
   });
-  const { email, username, password1, password2 } = signUpData;
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -47,24 +46,6 @@ const SignUpForm = () => {
           <Container>
             <h1>Sign up</h1>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="email">
-                <Form.Control
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  value={email}
-                  onChange={handleChange}
-                />
-                <Form.Text className="text-muted">
-                  We&apos;ll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
-              {errors.email?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-
               <Form.Group controlId="username">
                 <Form.Label className="d-none">username</Form.Label>
                 <Form.Control
