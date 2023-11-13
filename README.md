@@ -245,3 +245,163 @@ Initial wireframes
 
   ![Message success](/documentation/features/message-registered.png)
   ![Message warning](/documentation/features/message-unauthorized.png)
+
+- **Movies page**
+
+  - Here users can browse all the movies.
+  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can see how many comments a movie has or how many times it has been added to a wishlist.
+  - If there are no movies, this is displayed to the users.
+
+  ![Browse all movies - empty](/documentation/features/movies-empty.png)
+  ![Browse all movies](/documentation/features/movies-page.png)
+
+  - Users can search for movies by username, title, release, director and content keywords.
+
+  ![Search by username](/documentation/features/search-by-username.png)
+  ![Search by title](/documentation/features/search-by-title.png)
+  ![Search by release](/documentation/features/search-by-release.png)
+  ![Search by director](/documentation/features/search-by-director.png)
+  ![Search by content keywords](/documentation/features/search-by-keywords.png)
+
+  - Users can filter movies by specific genre categories.
+
+  ![Filter movies](/documentation/features/filter-movies.png)
+
+  - By clicking on the username on the movie card, users can visit their profile.
+  - By clicking on the movie title or movie image, users can visit the individual movie page.
+  - When logged in, users can add movies to their personal wishlist by clicking on the icon.
+  - When logged in, users can delete movies from their personal wishlist by clicking on the icon.
+  - Logged in users cannot add their own movies to their wishlist.
+
+- **Single movie with comments**
+
+  - This page allows users to view a single movie with all the comments.
+  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can see how many comments a movie has or how many times it has been added to a wishlist.
+
+  ![Single movie](/documentation/features/single-movie.png)
+  ![Single movie dropdown](/documentation/features/movie-edit-delete-dropdown.png)
+
+  - When logged in, users can add movies to their personal wishlist by clicking on the icon.
+  - When logged in, users can delete movies from their personal wishlist by clicking on the icon.
+  - Logged in users cannot add their own movies to their wishlist.
+
+  ![Cannot add to wishlist](/documentation/features/wishlist-cannot-add-own-movie.png)
+
+  - If users are logged in, they can add comments to all movies, even if they have created them.
+  - A comment cannot be empty.
+  - If a user has posted a comment, they can edit and/or delete their comment by clicking on the three dots to go to the drop down icons.
+
+  ![Comment section](/documentation/features/movie-with-comment.png)
+  ![Edit comment](/documentation/features/comment-edit-form.png)
+
+  - If the user is the owner of the movie, he/she can edit or delete it by clicking on the three dots to get to the drop-down icons.
+  - Clicking the delete icon will delete the comment. There is no extra confirmation.
+
+  ![Delete comment](/documentation/features/comment-deleted.png)
+
+  - **Add a movie**
+
+  - Users can add a movie by clicking the 'Add Movie' button in the navbar.
+  - After clicking the button, the Add Movie form will appear.
+  - Users must enter a title, release, director, and select a category.
+  - The image and content fields can be left blank.
+
+  ![Add movie form](/documentation/features/add-movie-form.png)
+
+- **Edit a movie**
+
+  - If the user is the owner of the movie, he/she can edit it by clicking on the three dots to get to the drop-down edit icon on the single movie page.
+  - Every item can be changed.
+
+  ![Edit movie form](/documentation/features/edit-movie-form.png)
+
+- **Delete a movie**
+
+  - If the user is the owner of the movie, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the single movie page.
+  - Clicking the delete icon will delete the movie. There is no extra confirmation.
+
+  ![Delete movie message](/documentation/features/message-movie-deleted.png)
+
+- **Glossary(s) page**
+
+  - This site allows users to browse all the glossary items.
+  - All glossary items are sorted alphabetically.
+  - Users can see the name of the user who created the item and the creation date, as well as the name of the user who updated the item and the update date, by opening the toggle.
+
+  ![Browse all glossary items](/documentation/features/glossary-unauthenticated.png)
+
+  - If there are no movies, this is displayed to the users.
+
+  ![Empty glossary](/documentation/features/empty-glossary-unauthenticated.png)
+
+  - Users can search for glossary items by title.
+
+  ![Search glossary items](/documentation/features/glossary-search.png)
+
+  - When logged in, users can add glossary items by clicking on the button.
+  - When logged in, users can edit and/or delete glossary items by clicking on the three dots to go to the drop down icons.
+
+  ![Glossary page authenticated users](/documentation/features/glossary-authenticated-can-edit.png)
+
+- **Single glossary item**
+
+  - This page appears only if a user has added a new glossary item or if a user has the specific link to a single glossary item.
+  - Users can see the name of the user who created the item and the creation date, as well as the name of the user who updated the item and the update date, by opening the toggle.
+  - Once logged in, users can edit any glossary item, but only the creator of a glossary item can delete it by clicking on the three dots to access the drop-down icons.
+
+  ![Single glossary item](/documentation/features/glossary-single-item.png)
+
+- **Add a glossary item**
+
+  - Users can add a glossary item by clicking the 'Add glossary item' button on the glossary page.
+  - After clicking the button, the 'Add a glossary item' form will appear.
+  - Users will need to enter a title and content, so no field can be blank.
+  - Titles are converted to capital letters.
+  - Titles are unique so that a glossary item does not appear twice.
+
+  ![Add a glossary item form](/documentation/features/glossary-create-form.png)
+  ![Warnings](/documentation/features/glossary-unique-message-not-blank.png)
+
+- **Edit a glossary item**
+
+  - Once logged in, users can edit any glossary item by clicking on the three dots on the glossary page or the single glossary item page to access the drop-down icons.
+  - Every field is editable.
+
+  ![Edit glossary item form](/documentation/features/edit-glossary-form.png)
+
+- **Delete a glossary item**
+
+  - If the user is the creator of the glossary item, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the glossary page or the single glossary item page.
+  - Clicking the delete icon will delete the glossary item. There is no extra confirmation.
+
+  ![Delete glossary item message](/documentation/features/message-glossary-deleted.png)
+
+  - If the user is not the creator of the glossary item, a warning is displayed that the item cannot be deleted.
+
+  ![Delete glossary item message warning](/documentation/features/message-glossary-delete-only-creator.png)
+
+- **Wishlist page**
+
+  - Once logged in, users can see their personal wishlist with movies here.
+  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can see how many comments a movie has or how many times it has been added to a wishlist.
+  - Users have the same functionality to browse, search and filter movies in their wishlist as on the movies page.
+
+  ![Wishlist - empty](/documentation/features/wishlist-empty.png)
+  ![Wishlist](/documentation/features/wishlist.png)
+
+  - By clicking on the username on the movie card, users can visit their profile.
+  - By clicking on the movie title or movie image, users can visit the individual movie page.
+  - Users can delete movies from their personal wishlist by clicking on the icon.
+  - Clicking the delete icon will delete the movie from the wishlist. There is no extra confirmation.
+
+  ![Wishlist - delete movie](/documentation/features/wishlist-deleted.png)
+
+- **404 page**
+
+  - When users click on a link that does not exist, they are automatically redirected to a 404 page.
+  - There they are informed of the non-existent page and can click the "Back to Home" button to return to the home page.
+
+  ![404 page](/documentation/features/404-page.png)
