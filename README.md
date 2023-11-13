@@ -39,3 +39,40 @@ The site allows users to register and log in from the frontend. Once registered 
 The live website on Heroku can be accessed at the following link: [View my Live Website here](https://cinematography-455aca732715.herokuapp.com/)
 
 ![Cinematography of Holocaust](png)
+
+# User Experience
+
+<a href="#top">Back to the top.</a>
+
+## UX
+
+### Site purpose
+
+This site is designed to invite everyone to add movies about the Holocaust and thus contribute to a comprehensive cinematography of Holocaust. Everyone can help facilitate the exchange of movies across national borders.
+
+### Site goal
+
+The goal of the site is to appeal to international users and encourage them to add movies about the Holocaust, thus making movies visible across national borders. Many movies are not subtitled or are imported or shown in other countries. This is where an exchange should take place to keep the memory alive across all borders. Such a tool does not (yet) exist in Germany and the [Cinematography of Holocaust from the Fritz-Bauer-Institut](http://cine-holocaust.de/site/cdh.php) was last updated in 2015.
+
+### Audience
+
+For anyone who wants to share movies about the Holocaust and keep the memory alive across all borders.
+
+## User stories
+
+### First time user goals
+
+- As a first time user I can find information what the purpose of the website is.
+
+### Returning user goals
+
+- As a (returning) user, I can register for an account so that I can login after registration.
+- As a returning user, I can login to my registered account.
+- As a returning user, I can log out of my registered account.
+- As a returning user, I can edit the content of my profile.
+- As a returning user I can add, edit and delete movies and glossary entries.
+- As a returning user I can add movies to my wishlist.
+- As a returning user, I can delete movies from my wishlist.
+- As a returning user, I can add, edit and delete comments on other movies.
+- As a returning user, I can search for and filter movies.
+- As a returning user I can visit other profiles.
