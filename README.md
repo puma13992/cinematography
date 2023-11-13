@@ -114,3 +114,43 @@ The pictures (logo, image for home, favicons) were taken from [Pixabay](https://
 The database model reflects the different areas of the website: the user model, which is used for all other models, the "Profile" model, the entries for the movies through the "Movie" model, the entries for the glossary entries through the "Glossary" model, the entries for the comments through the "Comment" model and the entries for the wishlist through the "Wishlist" model.
 
 ![Database scheme](/documentation/design/database-schema.png)
+
+### Wireframes
+
+Initial wireframes
+
+#### Home page
+
+![Home page first screen](/documentation/wireframes/homepage.png)
+
+#### Sign up
+
+![Sign up](/documentation/wireframes/sign-up.png)
+
+#### Sign in
+
+![Sign in](/documentation/wireframes/sign-in.png)
+
+#### Profile
+
+![Profile](/documentation/wireframes/profile.png)
+
+#### Movies page
+
+![Movies page](/documentation/wireframes/all-movies.png)
+
+#### Add a movie
+
+![Add a movie](/documentation/wireframes/add-movie.png)
+
+#### Single movie
+
+![Single movie](/documentation/wireframes/single-movie.png)
+
+#### Glossary page
+
+![Glossary page](/documentation/wireframes/glossary.png)
+
+#### Wishlist
+
+![Wishlist](/documentation/wireframes/wishlist.png)
