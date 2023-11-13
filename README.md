@@ -76,3 +76,16 @@ For anyone who wants to share movies about the Holocaust and keep the memory ali
 - As a returning user, I can add, edit and delete comments on other movies.
 - As a returning user, I can search for and filter movies.
 - As a returning user I can visit other profiles.
+
+## Agile methodology
+
+The principles of agile methodology were utilized during the project. Github issues were used to create user stories for the project. Each user story (including user acceptance criteria, tasks and story points) can be displayed on the board or in the issues. By assigning user stories to issues and taking advantage of the GitHub Kanban board functionality, the necessary goals and priorities throughout the project could be well defined. In addition, labels were used to further define the priority of each user story in the Kanban board.
+
+Through the use of the Kanban board in the projects view in Github, the project was divived into a few different sections:
+
+- Add-ons
+- Todo
+- In Progress
+- Done
+
+Milestones were used to create sprints. There were 4 sprints each dated appropriately. User stories were completed based on the current sprint in progress. Each sprint was completed on time.
