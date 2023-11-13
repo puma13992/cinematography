@@ -154,3 +154,94 @@ Initial wireframes
 #### Wishlist
 
 ![Wishlist](/documentation/wireframes/wishlist.png)
+
+# Features
+
+<a href="#top">Back to the top.</a>
+
+## Existing features
+
+- **Home page**
+
+  - The home page shows information about the site and a FAQ toggle briefly explains the most important things.
+  - The image emphasises the aim of the page.
+  - The homepage also features the three latest movie entries and a button that leads to the movie catalogue.
+
+  ![Home page introduction](/documentation/features/homescreen-1.png)
+  ![Home page information](/documentation/features/homescreen-2.png)
+  ![Home page movies](/documentation/features/home-newest-movies.png)
+
+- **Navigation Bar**
+
+  - The navigation bar appears on each page.
+  - The home page can be displayed by clicking on the logo on the left side.
+  - The navigation bar for unauthenticated users contains links to the home screen (via de logo and via the link), movies page, glossary page, sign in and sign up.
+
+  ![Navigation bar unauthenticated users](/documentation/features/navbar-unauthenticated.png)
+
+  - The navigation bar for authenticated users contains links for the home page (via de logo and via the link), movies page, glossary page, wishlist and sign out. There is also a link to add movies next to the logo.
+
+  ![Navigation bar authenticated users](/documentation/features/navbar-authenticated.png)
+
+  - The navigation bar will allow the users to easily navigate from page to page across all devices.
+  - The navigation bar is fully responsive. On smaller devices, the hamburger menu appears with an expanded menu bar.
+
+  ![Navigation bar unauthenticated users mobile](/documentation/features/navbar-mobile-open.png)
+
+  ![Navigation bar authenticated users mobile](/documentation/features/navbar-mobile-authenticated.png)
+
+- **Sign up**
+
+  - The page is intended for new users to sign up.
+  - The users have to enter a username and the password twice.
+  - They can find some information about the password criteria if they don't meet them.
+
+  ![Sign up](/documentation/features/sign-up.png)
+  ![Password criteria](/documentation/features/sign-up-password-criteria.png)
+
+- **Sign in**
+
+  - The page is intended for registered users to sign in.
+  - The users have to enter their username and the password.
+
+  ![Sign in](/documentation/features/sign-in-form.png)
+
+- **Sign out**
+
+  - The button is intended for registered and logged in users to sign out.
+  - By clicking on the button, the users are logged out and redirected to the home page.
+
+  ![Sign out](/documentation/features/sign-out.png)
+
+- **Profile**
+
+  - Logged in users will find their profile on this page.
+  - On the side of the profile card the user will find a drop down menu to edit their profile and/or change their password.
+  - Their profile contains their username and a summary of the movies and glossary entries they have created.
+  - Below this summary, the user can find the movies and glossary entries they have created.
+
+  ![Profile](/documentation/features/profiles-page-with-content.png)
+
+  - Users can visit other users profiles by clicking on their username.
+
+- **Edit profile**
+
+  - Logged in users can edit their profile by clicking on the drop down button in their profile card.
+  - Users can edit their profile content and/or profile picture.
+
+  ![Edit profile](/documentation/features/profile-edit-form.png)
+
+- **Change password**
+
+  - Logged in users can change their password by clicking on the drop down button in their profile card.
+  - Users must enter their new password twice.
+
+  ![Change password](/documentation/features/change-password-in-profile.png)
+
+- **Messages**
+
+  - Messages are displayed for almost every relevant operation on the site, e.g. information about registering, logging in, logging out, adding, editing, deleting.
+  - All messages are displayed for five seconds and can be dismissed with the x button in the right-hand corner.
+
+  ![Message success](/documentation/features/message-registered.png)
+  ![Message warning](/documentation/features/message-unauthorized.png)
