@@ -38,7 +38,7 @@ The site allows users to register and log in from the frontend. Once registered 
 
 The live website on Heroku can be accessed at the following link: [View my Live Website here](https://cinematography-455aca732715.herokuapp.com/)
 
-![Cinematography of Holocaust](png)
+![Cinematography of Holocaust](/documentation/design/cinematography-website.png)
 
 # User Experience
 
@@ -66,15 +66,17 @@ For anyone who wants to share movies about the Holocaust and keep the memory ali
 
 ### Returning user goals
 
-- As a (returning) user, I can register for an account so that I can login after registration.
-- As a returning user, I can login to my registered account.
-- As a returning user, I can log out of my registered account.
-- As a returning user, I can edit the content of my profile.
-- As a returning user I can add, edit and delete movies and glossary entries.
+- As a (returning) user, I can sign up for an account so that I can sign in after registration.
+- As a returning user, I can sign in to my registered account.
+- As a returning user, I can sign out of my registered account.
+- As a returning user, I can edit the content and picture of my profile.
+- As a returning user, I can change my password if I'm logged in.
+- As a returning user I can add, edit and delete movies and glossary items.
 - As a returning user I can add movies to my wishlist.
 - As a returning user, I can delete movies from my wishlist.
-- As a returning user, I can add, edit and delete comments on other movies.
-- As a returning user, I can search for and filter movies.
+- As a returning user, I can add, edit and delete comments on movies.
+- As a returning user, I can search for movies.
+- As a returning user, I can search filter movies by genre categories.
 - As a returning user I can visit other profiles.
 
 ## Agile methodology
@@ -96,8 +98,8 @@ Milestones were used to create sprints. There were 4 sprints each dated appropri
 
 I decided to use only basic colors, mainly white and shades of black. The colors black and white are typical symbols of the past - especially in movies. Also, the subject of the Holocaust is not one that allows for a colourful palette. I only used different shades of blue as an accent colour. Blue is the typical business colour because it is sober, businesslike, reassuring and trustworthy, and it retains its character even in different shades. It is best suited to the purpose of the website. To maintain the contrast between the background and the text, a basic black and a light grey are included. All the colors also relate to the existing Bootstrap colors (e.g. primary, light and dark).
 
-![Colors basic](png)
-![Colors shades of blue](png)
+![Colors basic](/documentation/design/basic-colors.png)
+![Colors shades of blue](/documentation/design/shades-blue.png)
 
 ### Typography
 
@@ -105,10 +107,10 @@ I chose Times New Roman because it is a sans serif font, which is generally easy
 
 ### Media
 
-The pictures (logo, images for introduction film, favicons) were taken from [Pixabay](https://pixabay.com/). The images for the movies are self-made screenshots. Most of the texts are from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
+The pictures (logo, image for home, favicons) were taken from [Pixabay](https://pixabay.com/). The images for the movies are self-made screenshots. Most of the texts are from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
 
 ### Database scheme
 
 The database model reflects the different areas of the website: the user model, which is used for all other models, the "Profile" model, the entries for the movies through the "Movie" model, the entries for the glossary entries through the "Glossary" model, the entries for the comments through the "Comment" model and the entries for the wishlist through the "Wishlist" model.
 
-![Database scheme](png)
+![Database scheme](/documentation/design/database-schema.png)
