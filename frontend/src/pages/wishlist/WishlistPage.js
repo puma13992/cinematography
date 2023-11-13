@@ -9,8 +9,11 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ScrollToTop from "../../components/ScrollToTop";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function WishlistPage({ message, filter = "" }) {
+  useRedirect("loggedOut");
+
   // Pass user information as a prop
   const [wishlistMovies, setWishlistMovies] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
