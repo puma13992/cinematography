@@ -29,3 +29,13 @@
   - [Running the project locally](#running-the-project-locally)
   - [Deploying with Heroku](#deploying-with-heroku)
 - [Credits](#credits)
+
+# Introduction: Cinematography of Holocaust
+
+This is the Project Portfolio 5 for Code Institute Full-stack development program. Cinematography of Holocaust is a Django Rest Framework and React.js project that runs on Heroku.
+
+The site allows users to register and log in from the frontend. Once registered and logged in users can edit their profile, add, edit and delete movies and glossary items.
+
+The live website on Heroku can be accessed at the following link: [View my Live Website here](https://cinematography-455aca732715.herokuapp.com/)
+
+![Cinematography of Holocaust](png)
