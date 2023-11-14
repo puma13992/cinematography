@@ -568,3 +568,9 @@ Initial wireframes
 - web-vitals
   - Library for measuring web vital metrics
   - Helps monitor and improve the performance and user experience of web pages by tracking key metrics
+
+# Testing
+
+<a href="#top">Back to the top.</a>
+
+All testing results can be found [here](TESTING.md)
