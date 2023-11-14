@@ -25,7 +25,6 @@ const Movie = (props) => {
     category,
     created_at,
     updated_at,
-    moviePage,
     setMovies,
   } = props;
 
@@ -108,7 +107,7 @@ const Movie = (props) => {
             <span className={styles.CreateUpdateText}>
               Updated at: {updated_at}
             </span>
-            {is_owner && moviePage && (
+            {is_owner && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
