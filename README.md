@@ -405,3 +405,12 @@ Initial wireframes
   - There they are informed of the non-existent page and can click the "Back to Home" button to return to the home page.
 
   ![404 page](/documentation/features/404-page.png)
+
+  ## Future features
+
+- For a future version, the ability to change the password if the user forgets it could be added.
+- A future version could add the ability to add an email address to the account itself.
+- In a future version, other registration/login options - e.g. via Google or Github - could be added.
+- For a future version, the ability to add the country of production for movies could be added.
+- For a future version, the scroll-to-top button could be improved so that it only appears when a user scrolls down.
+- In a future version, the glossary item drop down list could be improved so that the delete icon only appears for the creator of the item.
