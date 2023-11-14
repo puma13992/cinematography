@@ -593,7 +593,6 @@ Version control was used throughout the project using the following commands in 
 1. A new repository was created using [Code-Instutute-Org/ci-full-template](https://github.com/Code-Institute-Org/ci-full-template)
 2. A meaningful name was given to my new repository and I selected 'Create Repository'
 3. I then opened the repository on GitHub and clicked the 'Gitpod' resp. 'Codeanywhere' button to build the workspace which would allow me to build and edit the code used to make the <em>Cinematography of Holocaust</em> website.
-4. For the frontend set up I used the [Code-Institute-Org/react-ci-template](https://github.com/Code-Institute-Org/react-ci-template). Only later I decided to use Gitpod as my only IDE.
 
 ## Backend/API
 
@@ -786,7 +785,7 @@ if 'DEV' not in os.environ:
 
 7. Make sure to save all files, add, commit and push to Github
 
-### Deployment to Heroku
+### Deployment backend to Heroku
 
 1. On the Heroku dashboard create a new app
 2. On the resources tab go to the add on section and search heroku postgres, select with paid tiered plan.
@@ -915,3 +914,116 @@ pip freeze > requirements.txt
 24. Connect up the correct repository for backend project
 25. In 'manual deploy' section, click 'deploy branch'
 26. Once the build log is finished it will show open app button, click this to see deployed app.
+
+## Frontend/Project unification
+
+1. To combine backend and frontend in one repository, I followed the instructions from [Code Institute](https://code-institute-students.github.io/advfe-unified-workspace/combining-workspaces/00-combining-workspaces).
+2. For the frontend setup I used the [Code-Institute-Org/react-ci-template](https://github.com/Code-Institute-Org/react-ci-template). Only later did I decide to use Gitpod as my only IDE, so actually I could have used this [template](https://github.com/Code-Institute-Org/cra-template-moments.git) as well.
+3. To add a frontend to my repository, I did the following:
+
+- Go to the GitHub repository for your React project
+- Click the “Code” button, select the HTTPS tab, and copy the URL provided
+- Open the workspace for your DRF project
+- Open the terminal window and type the below command, ensuring you add the URL you copied above into the correct place:
+
+```
+git clone <react_repo_url> frontend
+```
+
+- This will create a new folder in your DRF workspace called frontend that contains all the files from your React project
+- In the terminal window, change directory to the frontend folder with the following command
+
+```
+cd frontend
+```
+
+- Enter the following command to remove the .git folder, .gitignore file and README.md from the frontend folder
+
+```
+rm -rf .git .gitignore README.md
+```
+
+- Install the npm packages required for developing with React using the following command
+
+```
+npm install
+```
+
+### Preparing React for development
+
+1. Open the package.json file in the frontend directory, and at the bottom of the file, add a new key to the JSON object. This will allow the preview to run within your development environment
+
+```
+"proxy": "http://localhost:8000/"
+```
+
+2. Open the axiosDefaults.js file and comment out the baseURL setting
+3. Comment out the <strong>DEV</strong> environment variable. This ensures that the application will respond with JSON
+4. Remove the <strong>CLIENT_ORIGIN_DEV</strong> environment variable, if you have it
+5. Add a new key <strong>DEBUG</strong> with a value of ‘1’ in env.py
+6. Add a new key <strong>DEBUG</strong> in settings.py
+
+```
+DEBUG = 'DEBUG' in os.environ
+```
+
+7. Update <strong>ALLOWED_HOSTS</strong> to include the ALLOWED_HOST environment variable added to your env.py file
+
+```
+ALLOWED_HOSTS = [
+  'localhost',
+  os.environ.get('ALLOWED_HOST')
+  ]
+```
+
+8. Ensure you have a key for <strong>DATABASE_URL</strong> set to the value of your ElephantSQL database URL in your env.py
+9. Ensure you have a key for <strong>CLOUDINARY_URL</strong> set to the value of your Cloudinary URL in your env.py
+10. Removing most of the CORS code:
+
+- In your settings.py file remove the line containing the import re
+- Remove all the CORS code, leaving only the CORS_ALLOWED_ORIGINS list
+
+```
+CORS_ALLOWED_ORIGINS = [
+  os.environ.get('CLIENT_ORIGIN')
+]
+```
+
+### Install urllib3 (only for Codeanywhere)
+
+If you are working in Codeanywhere you will need to install the urllib3 package to ensure your post images will save to Cloudinary without errors.
+
+1. Ensure your terminal location is in the root directory, then install urllib3 with the following command
+
+```
+pip3 install urllib3==1.26.15
+```
+
+2. Add this dependency to your requirements.txt file with the following command
+
+```
+pip3 freeze > requirements.txt
+```
+
+### Running your application in your development environment
+
+1. Open two terminals, side by side
+2. Terminal 1 should be in the root directory where the Django API will run. From here, type the command to run the Django API
+
+```
+python3 manage.py runserver
+```
+
+3. Terminal 2 should be in the frontend directory. To enter that directory from the root, type the following command
+
+```
+cd frontend
+```
+
+Then run the React server with the following command:
+
+```
+npm start
+```
+
+## Deployment of both applications
