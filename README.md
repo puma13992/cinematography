@@ -446,7 +446,80 @@ Initial wireframes
   - Was used to create the color scheme
 - [App.diagram](https://app.diagrams.net/)
   - Was used to create the database schema & the components schema
+- [Gitpod](https://gitpod.io/)
+  - IDE used to code the project
+- [Heroku](https://www.heroku.com/)
+  - Used to deploy the application
 
 ### Backend
 
+- [PEP8](https://pep8ci.herokuapp.com/)
+  - Was used to validate the backend of the website
+- [Djecrety](https://djecrety.ir/)
+  - Was used to create a secret key
+- Gunicorn
+  - As the server for Heroku
+- Cloudinary
+  - Was used to host the static files and media
+- Dj_database_url
+  - To parse the database URL from the environment variables in Heroku
+- Psycopg2
+  - As an adaptor for Python and PostgreSQL databases
+- Allauth
+  - For authentication, registration, account management
+- Django
+  - As a framework for Python
+- Django Cloudinary Storage
+  - Storage of images in the cloud
+- Django Filter
+  - To filter the data
+- PyJWT
+  - JSON Web Token implementation in Python
+  - Allows Django applications to work with JWTs for authentication and authorization
+- Pillow
+  - Python Imaging Library (PIL) fork for image processing tasks
+  - Used for opening, manipulating, and saving many different image file formats
+- Django Resized
+  - For resizing the uploaded images
+- Dj-rest-auth
+  - Django REST framework extension for handling authentication
+  - Provides additional authentication views, serializers, and settings for Django REST framework
+- PostgreSQL
+  - As the database
+- Cors headers
+  - Django application for handling Cross-Origin Resource Sharing (CORS)
+  - Essential for managing cross-origin requests and ensuring secure communication between clients and the server.
+- ASGI (Asynchronous Server Gateway Interface) reference implementation
+  - Necessary for building asynchronous web applications using Django
+- Coverage
+  - Used to analyze how much of your code is covered by automated tests.
+- Django Rest framework
+  - A powerful and flexible toolkit for building Web APIs in Django
+  - Extends Django to make it easy to build, test, and consume APIs
+- Django Rest framework Simple JWT
+  - JSON Web Token (JWT) authentication for Django REST framework
+  - Adds secure authentication using JWTs to Django REST framework
+- OAuth library
+  - A generic and reusable Python implementation of OAuth1 and OAuth2
+  - Supports various OAuth protocols for secure authentication
+- python3-openid
+  - Python 3 compatible library for working with OpenID
+  - Supports OpenID authentication in Django applications
+- pytz
+  - World timezone definitions for Python
+  - Ensures accurate handling of timezones in Django applications
+- requests-oauthlib
+  - OAuthlib authentication support for Requests
+  - Used for OAuth authentication in Django applications
+- sqlparse
+  - A non-validating SQL parser for Python
+  - Provides tools for working with SQL queries and statements
+- whitenoise
+  - Simplifies serving static files directly from Django
+  - Enhances the performance and security of serving static files in a production environment
+
 ### Frontend
+
+- [WC3 Validator](https://validator.w3.org/) and [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) were used to validate the frontend of the website
+- [Bootstrap](https://getbootstrap.com/)
+  - Was used to create the front-end design
