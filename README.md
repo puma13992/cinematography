@@ -1027,3 +1027,182 @@ npm start
 ```
 
 ## Deployment of both applications
+
+To deploy backend and frontend in one repository, I followed the instructions from [Code Institute](https://code-institute-students.github.io/advfe-unified-workspace/deployment/00-deployment).
+
+### Setting up WhiteNoise for static files
+
+Because the React part of the project contains static files, we need to store all the static files for deployment, using WhiteNoise. WhiteNoise will also store the static files for the Django Admin panel, so you’ll be able to easily access that from the deployed URL as well.
+
+1. Ensure your terminal location is in the root directory, then install whitenoise with the following command
+
+```
+pip3 install whitenoise==6.4.0
+```
+
+2. Add this dependency to your requirements.txt file with the following command
+
+```
+pip3 freeze > requirements.txt
+```
+
+3. Create a new empty folder called staticfiles in the root directly with the following command
+
+```
+mkdir staticfiles
+```
+
+4. In settings.py:
+
+- In the INSTALLED_APPS list, ensure that the ‘cloudinary_storage’ app name is below ‘django.contrib.staticfiles’. This ensures that Cloudinary will not attempt to intervene with staticfiles, and allows whitenoise to become the primary package responsible for static files
+- In the MIDDLEWARE list, add WhiteNoise below the SecurityMiddleware and above the SessionMiddleware
+
+```
+'corsheaders.middleware.CorsMiddleware',
+'django.middleware.security.SecurityMiddleware',
+'whitenoise.middleware.WhiteNoiseMiddleware',
+```
+
+- In the TEMPLATES list at the DIRS key, add the following code to the DIRS list, to tell Django and WhiteNoise where to look for Reacts index.html file in deployment
+
+```
+'DIRS': [os.path.join(BASE_DIR, 'staticfiles', 'build')],
+```
+
+- In the static files section, add the STATIC_ROOT and WHITENOISE_ROOT variables and values to tell Django and WhiteNoise where to look for the admin static files and Reacts static files during deployment
+
+```
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
+```
+
+### Adding the route to serve the index template
+
+The React front end will be served from the domain’s root URL, so we need to ensure that this is the React part of the project and not the DRF interface you worked with when the projects were separate. So we will add the code below to ensure that the home page will display the React application. Any 404 errors redirect the user back to the React application where the request will be handled by the react-router-dom. We will also adjust our URLs so that all URLs for the DRF API contain /api/ to ensure that the API’s routes do not clash with the React application’s routes.
+
+1. In the urls.py file of your backend/api application:
+
+- Remove the root_route view from the .views imports
+
+```
+from .views import logout_route
+```
+
+- Import the TemplateView from the generic Django views
+
+```
+from django.views.generic import TemplateView
+```
+
+- In the url_patterns list, remove the root_route code and replace it with the TemplateView pointing to the index.html file
+
+```
+path('', TemplateView.as_view(template_name='index.html')),
+```
+
+- At the bottom of the file, add the 404 handler to allow React to handle 404 errors
+
+```
+handler404 = TemplateView.as_view(template_name='index.html')
+```
+
+- Add api/ to the beginning of all the API URLs, excluding the path for the home page and admin panel
+
+2. In axiosDefault.js:
+
+- Open the axiosDefaults.js file, comment back in the axios.defaults.baseURL and set it to "/api"
+
+### Compiling the static files
+
+Now that the code for collecting and accessing the static files has been created, we can compile all of the static files from both the Django admin panel and the React files into the staticfiles folder for deployment.
+
+1. Collect the admin and DRF staticfiles to the empty staticfiles directory you created earlier, with the following command in the terminal
+
+```
+python3 manage.py collectstatic
+```
+
+2. Next, we will compile the React application and move its files to the staticfiles folder. In another terminal, cd into the frontend directory
+
+```
+cd frontend
+```
+
+3. Then run the command to compile and move the React files
+
+```
+npm run build && mv build ../staticfiles/.
+```
+
+4. You will need to re-run this command any time you want to deploy changes to the static files in your project, including the React code. To do this, you need to delete the existing build folder and rebuild it. This command will delete the old folder and replace it with the new one:
+
+```
+npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+```
+
+5. Now your staticfiles folder should be filled with all the static files needed for deployment. Depending on your specific dependency versions, your file structure in the staticfiles folder may be slightly different from the above image. The folders we need to be sure are there are the admin and build folders.
+
+### Adding a runtime.txt file
+
+This will ensure Heroku uses the correct version of Python to deploy your project.
+
+1. In the root directory of your project, create a new file named runtime.txt
+2. Inside the runtime.txt, add the following line:
+
+```
+python-3.9.16
+```
+
+### Adding code to the Procfile
+
+1. Adding the following to the Procfile at the root of the project:
+
+```
+web_frontend: serve -s build
+```
+
+### Testing the Build
+
+Now that all the settings are in place, we can test that the builds for both parts of the project are running together on the same server port.
+
+1. Ensure all running servers are terminated. In any running terminals press Ctrl+C
+2. In your env.py file, ensure that both the DEBUG and DEV environment variables are commented out
+3. Run the Django server, in the terminal type
+
+```
+python3 manage.py runserver
+```
+
+4. Open the preview on port 8000 to check that your application is running
+
+### Preparing your existing (backend) Heroku app for deployment
+
+If you have not deployed this application to Heroku before, you can find most of the steps for this in the Deployment section of the backend. Please ensure that you have added those settings, plus the additional ones below.
+
+1. Log into your Heroku account and access the dashboard for your DRF application
+2. Go to Settings and open the Config Vars
+3. Ensure your application has an ALLOWED_HOST key, set to the URL of your combined project, remove the https:// at the beginning and remove the trailing slash at the end
+4. Ensure your application has a CLIENT_ORGIN key and set it to the URL of your combined project. This time keep the https:// at the beginning but remove the trailing slash at the end
+5. Ensure all your settings are in place, including the ones from the Deployment section of the backend. Including saving, committing and pushing any changes made to your code
+6. Deploy your application from the Deploy tab in your Heroku dashboard
+
+## Conclusion: Heroku settings & deployment
+
+You will need to set your Environment Variables - this is a key step to ensuring your application is deployed properly.
+
+1. In the Settings tab, click on `Reveal Config Vars` and set the following variables:
+   - Add key: DATABASE_URL and the value as your ElephantSQL database URL e.g.
+   - Add key: CLOUDINARY_URL and the value as your cloudinary API Environment variable e.g.
+   - Add key: ALLOWED_HOST and the value as your ElephantSQL database URL e.g.
+   - Add key: CLIENT_ORIGIN and the value as your ElephantSQL database URL e.g.
+   - Add key: SECRET_KEY and the value as a complex string which will be used to provide cryptographic signing.
+   - Add `DISABLE_COLLECTSTATIC = 1` if you are still working on the project. This can be delete for final deployment.
+
+In the Deploy tab:
+
+1. Connect your Heroku account to your Github Repository following these steps:
+   - Click on the `Deploy` tab and choose `Github-Connect to Github`.
+   - Enter the GitHub repository name and click on `Search`.
+   - Choose the correct repository for your application and click on `Connect`.
+2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
+3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
