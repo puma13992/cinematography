@@ -521,5 +521,44 @@ Initial wireframes
 ### Frontend
 
 - [WC3 Validator](https://validator.w3.org/) and [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) were used to validate the frontend of the website
-- [Bootstrap](https://getbootstrap.com/)
-  - Was used to create the front-end design
+- React
+  - A JavaScript library for building user interfaces
+  - Enables the creation of dynamic and interactive UIs in web applications
+- react-dom
+  - The entry point for working with the DOM in React applications
+  - Used for rendering React components into the HTML DOM
+- react-router-dom
+  - DOM bindings for React Router
+  - Enables navigation and routing in React applications, allowing for dynamic content rendering based on URL changes
+- react-scripts
+  - Configuration and scripts for Create React App
+  - Provides a set of default configurations and scripts for bootstrapping React applications
+- NPM
+  - Package manager used to install dependencies
+- React Bootstrap
+  - Was used to style the website, add responsiveness and interactivity
+- Bootstrap
+  - The Bootstrap CSS framework
+  - Provides a responsive and mobile-first design system for building user interfaces
+- Axios
+  - A promise-based HTTP client for the browser and Node.js
+  - Simplifies making HTTP requests and handling responses in JavaScript applications
+- JWT Decode
+  - Decodes JSON Web Tokens (JWT) in JavaScript
+  - Allows for easy extraction of information from JWTs, commonly used for authentication
+- react-infinite-scroll-component
+  - A component to make the post load as an infinite scroll
+- Eslint
+  - ESLint was used to evaluate all the React.js code
+- jest-dom
+  - Provides custom Jest matchers for asserting on DOM elements
+  - Enhances Jest testing for React components by providing additional matchers for DOM assertions
+- testing-library/react
+  - A testing utility library for React
+  - Facilitates testing React components in a way that mirrors user interactions
+- testing-library/user-event
+  - A library for simulating user events in testing
+  - Allows for programmatically simulating user interactions, such as clicks and keyboard events, for testing React components
+- web-vitals
+  - Library for measuring web vital metrics
+  - Helps monitor and improve the performance and user experience of web pages by tracking key metrics
