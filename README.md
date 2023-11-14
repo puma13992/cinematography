@@ -414,3 +414,39 @@ Initial wireframes
 - For a future version, the ability to add the country of production for movies could be added.
 - For a future version, the scroll-to-top button could be improved so that it only appears when a user scrolls down.
 - In a future version, the glossary item drop down list could be improved so that the delete icon only appears for the creator of the item.
+
+# Technologies used
+
+<a href="#top">Back to the top.</a>
+
+## Languages
+
+- Python
+- JavaScript
+- HTML5
+- CSS3
+
+## Frameworks, libraries, programs
+
+### General
+
+- [Git](https://git-scm.com/)
+  - Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
+- [Github](https://github.com/)
+  - GitHub was used to store the project's code after being pushed from Git
+- [Am I Responsive](http://ami.responsivedesign.is/)
+  - Am I responsive was used to create the multi-device mock-up you can see at the start of this README.md file
+- [Favicon.io](https://favicon.io/)
+  - Favicon.io was used for making the site favicon
+- [Adobe photoshop](https://www.adobe.com/de/products/photoshop.html)
+  - Adobe photoshop was used for making the image on the homepage
+- [Balsamiq](https://balsamiq.com/)
+  - Was used to create wireframes
+- [Coloors](https://coolors.co/)
+  - Was used to create the color scheme
+- [App.diagram](https://app.diagrams.net/)
+  - Was used to create the database schema & the components schema
+
+### Backend
+
+### Frontend
