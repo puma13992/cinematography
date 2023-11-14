@@ -450,6 +450,10 @@ Initial wireframes
   - IDE used to code the project
 - [Heroku](https://www.heroku.com/)
   - Used to deploy the application
+- [ElephantSQL](https://www.elephantsql.com/)<
+  - ElephantSQL is a PostgreSQL database hosting service were the database was created
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+  - To check App responsiveness and debugging
 
 ### Backend
 
@@ -521,6 +525,8 @@ Initial wireframes
 ### Frontend
 
 - [WC3 Validator](https://validator.w3.org/) and [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) were used to validate the frontend of the website
+- [Fontawesome](https://fontawesome.com/)
+  - To add icons to the app
 - React
   - A JavaScript library for building user interfaces
   - Enables the creation of dynamic and interactive UIs in web applications
