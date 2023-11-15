@@ -408,7 +408,39 @@ Initial wireframes
 
   ![404 page](/documentation/features/404-page.png)
 
-  ## Future features
+## Components
+
+The following diagram illustrates the structure of the individual React components and pages:
+
+![Components - part 1](/documentation/features/components-part-1.png)
+![Components - part 2](/documentation/features/components-part-2.png)
+
+Custom components were created to enable the code and functionality to re-used throughout the foodSNAP app
+
+- [AlertPopUp.js](/frontend/src/components/AlertPopup.js) was created to enable messaging on user success and error actions
+- [Asset.js](/frontend/src/components/Asset.js) was created to display a spinner when data is being fetched to notify the user that an action is being performed
+- [Avatar.js](/frontend/src/components/Avatar.js) was created to display the users profile image throughout the app
+- [MoreDropdown.js](/frontend/src/components/MoreDropdown.js) was created for authenticated users to be able to edit and/or delete content
+- [NavBar.js](/frontend/src/components/NavBar.js) was created to display the navigation menu and display different icons depending on if the user is logged in or not
+- [NotFound.js](/frontend/src/components/NotFound.js) was created to display a message to the user if the content they are looking for does not exist
+- [ScrollToTop.js](/frontend/src/components/ScrollToTop.js) was created to scroll the user back to the top of the page
+- [Searchbar.js](/frontend/src/components/Searchbar.js) was created to search movies on different pages
+
+[Movie.js](/frontend/src/pages/movies/Movie.js) and [Glossary.js](/frontend/src/pages/glossary/Glossary.js) were also used on several pages, e.g. the three latest films on the homepage or both elements on the profile page.
+
+### Custom hooks
+
+- [useAlert.js](/frontend/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
+- [useClickOutsideToggle.js](/frontend/src/hooks/useClickOutsideToggle.js) was created close the expanded menu on a click outside the menu at every stage in the app
+- [useRedirect.js](/frontend/src/hooks/useRedirect.js) was created to redirect the user to the homepage based on their userAuthStatus
+
+### Custom context
+
+- [AlertContext.js](/frontend/src/contexts/AlertContext.js) was created to allow the alert functionality to be used at every stage in the app
+- [CurrentUserContext.js](/frontend/src/contexts/CurrentUserContext.js) was created to get the current users authentication state and redirect the user to the signin page if not signed in.
+- [ProfileDataContext.js](/frontend/src/contexts/ProfileDataContext.js) was created to setProfileData, handleFollow, handleUnfollow of user profiles and access this data throughout the app.
+
+## Future features
 
 - For a future version, the ability to change the password if the user forgets it could be added.
 - A future version could add the ability to add an email address to the account itself.
