@@ -1290,3 +1290,28 @@ In the Deploy tab:
    - Choose the correct repository for your application and click on `Connect`.
 2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
 3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
+
+# Credits
+
+<a href="#top">Back to the top.</a>
+
+- [Code Institute tutorial for combining backend and frontend in one repo](https://code-institute-students.github.io/advfe-unified-workspace/combining-workspaces/00-combining-workspaces)
+- [Code Institute tutorial for deployment](https://code-institute-students.github.io/advfe-unified-workspace/deployment/00-deployment)
+- The pictures (homepage image, logo, favicons) were taken from [Pixabay](https://pixabay.com/).
+- The images for the movies that are created by gitpod, Sarah, Hannah and puma13992 are self-made screenshots.
+- Most of the texts are from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
+- If code was taken from other sources, this was noted in a comment in the respective file. The following sources were consulted:
+  - https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html
+  - https://stackoverflow.com/questions/40769136/django-rest-auth-reset-password-uid-and-token
+  - https://www.django-rest-framework.org/
+  - https://react-bootstrap-v4.netlify.app/
+  - https://jkaylight.medium.com/django-rest-framework-authentication-with-dj-rest-auth-4d5e606cde4d
+  - https://github.com/jkingportfolio/ci_pp5_tick_it_react/blob/main/src/components/ScrollToTop.js
+  - https://github.com/quiltingcode/happening-react-frontend/blob/main/src/pages/events/EventsPage.js
+  - https://gist.github.com/ianmeigh/8e603b91a38d7829d959402bfcf29d3d
+  - https://github.com/artcuddy/project5-foodsnap-frontend
+  - https://github.com/artcuddy/project5-foodsnap-backend
+
+A very big thank you to Sarah from the student support/tutor team who helped me very well in really difficult situations!
+
+A big thank you to my mentor Martina who patiently answered all my questions!
