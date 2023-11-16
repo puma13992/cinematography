@@ -137,3 +137,27 @@ With "coverage html" a html report was created.
 | `GlossaryDetailViewTests.test_logged_out_user_cant_delete_glossary_item`    | Check if a logged-out user can't delete a glossary item            | Passed |
 | `GlossaryDetailViewTests.test_logged_in_user_can_update_own_glossary_item`  | Check if a logged-in user can update their own glossary item       | Passed |
 | `GlossaryDetailViewTests.test_user_can_update_someone_elses_glossary_item`  | Check if a user can update someone else's glossary item            | Passed |
+
+#### Automated testing for movies
+
+| Test Case                                                        | Description                                                | Result |
+| ---------------------------------------------------------------- | ---------------------------------------------------------- | ------ |
+| `MovieModelTest.test_owner_label`                                | Check if the owner field has the correct verbose name      | Passed |
+| `MovieModelTest.test_created_at_label`                           | Check if the created_at field has the correct verbose name | Passed |
+| `MovieModelTest.test_updated_at_label`                           | Check if the updated_at field has the correct verbose name | Passed |
+| `MovieModelTest.test_title_label`                                | Check if the title field has the correct verbose name      | Passed |
+| `MovieModelTest.test_release_label`                              | Check if the release field has the correct verbose name    | Passed |
+| `MovieModelTest.test_director_label`                             | Check if the director field has the correct verbose name   | Passed |
+| `MovieModelTest.test_content_label`                              | Check if the content field has the correct verbose name    | Passed |
+| `MovieModelTest.test_category_label`                             | Check if the category field has the correct verbose name   | Passed |
+| `MovieListViewTests.test_can_list_movies`                        | Check if the movies list view returns HTTP 200 OK          | Passed |
+| `MovieListViewTests.test_logged_in_user_can_create_movie`        | Check if a logged-in user can create a movie               | Passed |
+| `MovieListViewTests.test_user_not_logged_in_cant_create_post`    | Check if a logged-out user can't create a movie            | Passed |
+| `MovieDetailViewTests.test_can_retrieve_movie_using_valid_id`    | Check if a movie can be retrieved with a valid ID          | Passed |
+| `MovieDetailViewTests.test_cant_retrieve_movie_using_invalid_id` | Check if movie retrieval fails with an invalid ID          | Passed |
+| `MovieDetailViewTests.test_user_cant_update_someone_elses_movie` | Check if a user can't update someone else's movie          | Passed |
+| `MovieDetailViewTests.test_user_can_delete_their_own_movie`      | Check if a user can delete their own movie                 | Passed |
+| `MovieDetailViewTests.test_user_cant_delete_someone_elses_movie` | Check if a user can't delete someone else's movie          | Passed |
+| `MovieDetailViewTests.test_logged_out_user_cant_update_movie`    | Check if a logged-out user can't update a movie            | Passed |
+| `MovieDetailViewTests.test_logged_out_user_cant_delete_movie`    | Check if a logged-out user can't delete a movie            | Passed |
+| `MovieDetailViewTests.test_logged_in_user_can_update_own_movie`  | Check if a logged-in user can update their own movie       | Passed |
