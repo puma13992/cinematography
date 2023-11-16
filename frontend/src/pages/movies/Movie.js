@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Movie.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -7,6 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import DeleteModal from "../../components/DeleteModal";
 
 const Movie = (props) => {
   const {
@@ -31,22 +32,33 @@ const Movie = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-  const { setAlert } = useAlert();
 
   const handleEdit = () => {
     history.push(`/movies/${id}/edit`);
   };
 
-  const handleDelete = async () => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const handleDelete = () => {
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = async () => {
     try {
       await axiosRes.delete(`/movies/${id}/`);
       history.push("/");
       setAlert("Movie deleted successfully!", "success");
+      setShowDeleteModal(false);
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
   };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
+  };
+
+  const { setAlert } = useAlert();
 
   const handleWishlist = async () => {
     try {
@@ -65,7 +77,6 @@ const Movie = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
   };
@@ -87,13 +98,12 @@ const Movie = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
   };
 
   return (
-    <Card className="text-center">
+    <Card className="text-center mb-2">
       <Card.Header>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
@@ -189,6 +199,11 @@ const Movie = (props) => {
           {comments_count}
         </div>
       </Card.Footer>
+      <DeleteModal
+        show={showDeleteModal}
+        onCancel={cancelDelete}
+        onConfirm={confirmDelete}
+      />
     </Card>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Glossary.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Media, Button, Accordion } from "react-bootstrap";
@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import DeleteModal from "../../components/DeleteModal";
 
 const Glossary = (props) => {
   const {
@@ -24,6 +25,7 @@ const Glossary = (props) => {
   const currentUser = useCurrentUser();
   const is_created_by = currentUser?.username === created_by;
   const history = useHistory();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const { setAlert } = useAlert();
 
   const handleEdit = () => {
@@ -35,10 +37,14 @@ const Glossary = (props) => {
       await axiosRes.delete(`/glossary/${id}/`);
       history.push("/");
       setAlert("Glossary item deleted successfully!", "success");
+      setShowDeleteModal(false);
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
   };
 
   return (
@@ -52,18 +58,25 @@ const Glossary = (props) => {
         <div>{title}</div>
         <div className="ml-auto">
           {currentUser && (
-            <MoreDropdown
-              handleEdit={handleEdit}
-              handleDelete={
-                is_created_by
-                  ? handleDelete
-                  : () =>
-                      setAlert(
-                        "Only the creator of the glossary item can delete it.",
-                        "warning"
-                      )
-              }
-            />
+            <>
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={() =>
+                  is_created_by
+                    ? setShowDeleteModal(true)
+                    : (() =>
+                        setAlert(
+                          "Only the creator of the glossary item can delete it.",
+                          "warning"
+                        ))()
+                }
+              />
+              <DeleteModal
+                show={showDeleteModal}
+                onCancel={cancelDelete}
+                onConfirm={handleDelete}
+              />
+            </>
           )}
         </div>
       </Accordion.Toggle>

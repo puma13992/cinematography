@@ -8,6 +8,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
 import useAlert from "../../hooks/useAlert";
+import DeleteModal from "../../components/DeleteModal";
 
 const Comment = (props) => {
   const {
@@ -22,6 +23,7 @@ const Comment = (props) => {
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -44,9 +46,14 @@ const Comment = (props) => {
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
       setAlert("Comment deleted successfully!", "success");
+      setShowDeleteModal(false);
     } catch (err) {
       setAlert(err.message, "error");
     }
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
   };
 
   return (
@@ -73,10 +80,17 @@ const Comment = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
-          />
+          <>
+            <MoreDropdown
+              handleEdit={() => setShowEditForm(true)}
+              handleDelete={() => setShowDeleteModal(true)}
+            />
+            <DeleteModal
+              show={showDeleteModal}
+              onCancel={cancelDelete}
+              onConfirm={handleDelete}
+            />
+          </>
         )}
       </Media>
     </>
