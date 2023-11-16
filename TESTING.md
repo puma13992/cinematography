@@ -15,3 +15,65 @@
   - [(Possible) Remaining bugs](#possible-remaining-bugs)
 
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early and often to Heroku to confirm local and remote functioned the same.
+
+## Validator testing
+
+<a href="#top">Back to the top.</a>
+
+- **HTML**
+
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcinematography-455aca732715.herokuapp.com%2F).
+
+- **CSS**
+
+  - No errors were found when copy the styles.css in the official Jigsaw validator but when running the link, some warnings showed up from the external library Bootstrap [Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcinematography-455aca732715.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=de).
+
+- **JS**
+
+  - The react/js-code is validated with ESLint. All validation fixes recommended by ESLint were fixed and the follwing rules added to the .eslintrc.json configuration file:
+
+  ```
+    "rules": {
+    "react/prop-types": 0,
+    "react/no-children-prop": "off",
+    "react/display-name": "off"
+  },
+  ```
+
+- **Python**
+
+  - All self written python-code was run through the Code Institute Python Linter and showed no errors.
+
+  - Only settings.py showed some errors. There are 5 lines to long but these are REST_AUTH_SERIALIZERS and the AUTH_PASSWORD_VALIDATORS which can not be shortend.
+
+  ![PEP8 Validator settings.py](/documentation/testing/pep-8-settings-py.png)
+
+Google Lighthouse was used to test performance, best practices, accessibility and SEO on desktop and mobile devices.
+
+The testing was done using the Google Chrome browser. Chrome developer tools were used extensively, particularly to check responsiveness on different screen sizes. Testing was also done using Edge and Firefox on desktop, and again on an iPad Mini and iPhone using Safari.
+
+- Responsive on all device sizes between 280px - 2600px wide
+- Devices tested using the Google Developer Tools emulator:
+
+  - iPhone SE (375x667px)
+  - iPhone XR (414x896px)
+  - iPhone 12 Pro (390x844px)
+  - Pixel 5 (393x851px)
+  - Samsung Galaxy S8+ (360x740px)
+  - Samsung Galaxy S20 Ultra (412x915px)
+  - iPad Air (820x1180px)
+  - iPad Mini (768x1024px)
+  - Surface Pro 7 (912x1368px)
+  - Surface Duo (540x720px)
+  - Galaxy Fold (280x653px)
+  - Samsung Galaxy A15/71 (412x912px)
+  - Nest Hub (1024x600px)
+  - Nest Hub Max (1280x800px)
+
+- Desktop Results:
+
+![Desktop results](png)
+
+- Mobile Results:
+
+![Mobile results](png)
