@@ -95,3 +95,26 @@ With "coverage html" a html report was created.
 ![HTML report - part 1](/documentation/testing/coverage-report-part-1.png)
 ![HTML report - part 2](/documentation/testing/coverage-report-part-2.png)
 ![HTML report - part 3](/documentation/testing/coverage-report-part-3.png)
+
+#### Automated testing for comments
+
+| Test Case                                                            | Description                                                  | Result |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |
+| `CommentModelTest.test_content_label`                                | Check if the content field has the correct verbose name      | Passed |
+| `CommentModelTest.test_created_at_label`                             | Check if the created_at field has the correct verbose name   | Passed |
+| `CommentModelTest.test_updated_at_label`                             | Check if the updated_at field has the correct verbose name   | Passed |
+| `CommentModelTest.test_owner_label`                                  | Check if the owner field has the correct verbose name        | Passed |
+| `CommentModelTest.test_movie_label`                                  | Check if the movie field has the correct verbose name        | Passed |
+| `CommentModelTest.test_ordering`                                     | Check if the model ordering is set to ['-created_at']        | Passed |
+| `CommentModelTest.test_string_representation`                        | Check if the string representation of Comment is the content | Passed |
+| `CommentListViewTests.test_can_list_comments`                        | Check if the comments list view returns HTTP 200 OK          | Passed |
+| `CommentListViewTests.test_logged_in_user_can_post_comment`          | Check if a logged-in user can post a comment                 | Passed |
+| `CommentListViewTests.test_logged_out_user_cant_create_comment`      | Check if a logged-out user can't create a comment            | Passed |
+| `CommentDetailViewTests.test_can_retrieve_comment_using_valid_id`    | Check if a comment can be retrieved with a valid ID          | Passed |
+| `CommentDetailViewTests.test_cant_retrieve_comment_using_invalid_id` | Check if a comment retrieval fails with an invalid ID        | Passed |
+| `CommentDetailViewTests.test_logged_in_user_can_update_own_comment`  | Check if a logged-in user can update their own comment       | Passed |
+| `CommentDetailViewTests.test_user_cant_update_someone_elses_comment` | Check if a user can't update someone else's comment          | Passed |
+| `CommentDetailViewTests.test_user_can_delete_their_own_comment`      | Check if a user can delete their own comment                 | Passed |
+| `CommentDetailViewTests.test_user_cant_delete_someone_elses_comment` | Check if a user can't delete someone else's comment          | Passed |
+| `CommentDetailViewTests.test_logged_out_user_cant_update_comment`    | Check if a logged-out user can't update a comment            | Passed |
+| `CommentDetailViewTests.test_logged_out_user_cant_delete_comment`    | Check if a logged-out user can't delete a comment            | Passed |
