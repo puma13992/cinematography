@@ -72,8 +72,9 @@ The testing was done using the Google Chrome browser. Chrome developer tools wer
 
 - Desktop Results:
 
-![Desktop results](png)
+![Desktop results](/documentation/testing/lighthouse-desktop.png)
 
 - Mobile Results:
+  Performance could be improved on by adding lazy loading to the images and implementing a CDN with caching.
 
-![Mobile results](png)
+![Mobile results](/documentation/testing/lighthouse-mobile.png)
