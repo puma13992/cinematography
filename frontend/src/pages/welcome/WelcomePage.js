@@ -64,7 +64,7 @@ function WelcomePage({ message = "" }) {
       </Row>
       <Row className="py-4">
         <Col>
-          <Image src={Homescreen} fluid />
+          <Image src={Homescreen} fluid alt="Picture of Auschwitz" />
         </Col>
       </Row>
       <Row>
