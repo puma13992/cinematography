@@ -118,3 +118,22 @@ With "coverage html" a html report was created.
 | `CommentDetailViewTests.test_user_cant_delete_someone_elses_comment` | Check if a user can't delete someone else's comment          | Passed |
 | `CommentDetailViewTests.test_logged_out_user_cant_update_comment`    | Check if a logged-out user can't update a comment            | Passed |
 | `CommentDetailViewTests.test_logged_out_user_cant_delete_comment`    | Check if a logged-out user can't delete a comment            | Passed |
+
+#### Automated testing for glossary
+
+| Test Case                                                                   | Description                                                        | Result |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------ |
+| `GlossaryModelTest.test_glossary_creation`                                  | Check if a glossary can be created with correct title and content  | Passed |
+| `GlossaryModelTest.test_unique_title_constraint`                            | Check if creating glossaries with the same title triggers an error | Passed |
+| `GlossaryModelTest.test_ordering`                                           | Check if glossary objects are ordered by 'updated_at' descending   | Passed |
+| `GlossaryListViewTest.test_can_list_glossary`                               | Check if the glossary list view returns HTTP 200 OK                | Passed |
+| `GlossaryListViewTest.test_logged_in_user_can_create_glossary_item`         | Check if a logged-in user can create a glossary item               | Passed |
+| `GlossaryListViewTest.test_user_not_logged_in_cant_create_glossary_item`    | Check if a logged-out user can't create a glossary item            | Passed |
+| `GlossaryDetailViewTests.test_can_retrieve_glossary_item_using_valid_id`    | Check if a glossary item can be retrieved with a valid ID          | Passed |
+| `GlossaryDetailViewTests.test_cant_retrieve_glossary_item_using_invalid_id` | Check if glossary retrieval fails with an invalid ID               | Passed |
+| `GlossaryDetailViewTests.test_user_can_delete_their_own_glossary_item`      | Check if a user can delete their own glossary item                 | Passed |
+| `GlossaryDetailViewTests.test_user_cant_delete_someone_elses_glossary_item` | Check if a user can't delete someone else's glossary item          | Passed |
+| `GlossaryDetailViewTests.test_logged_out_user_cant_update_glossary_item`    | Check if a logged-out user can't update a glossary item            | Passed |
+| `GlossaryDetailViewTests.test_logged_out_user_cant_delete_glossary_item`    | Check if a logged-out user can't delete a glossary item            | Passed |
+| `GlossaryDetailViewTests.test_logged_in_user_can_update_own_glossary_item`  | Check if a logged-in user can update their own glossary item       | Passed |
+| `GlossaryDetailViewTests.test_user_can_update_someone_elses_glossary_item`  | Check if a user can update someone else's glossary item            | Passed |
