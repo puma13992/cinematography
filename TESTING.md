@@ -2,12 +2,12 @@
 
 - [Validator testing](#validator-testing)
 - [Automated testing](#automated-testing)
-  - [Automated testing for comments]
-  - [Automated testing for glossary]
-  - [Automated testing for movies]
-  - [Automated testing for profiles]
-  - [Automated testing for wishlists]
-  - [Not automated tested](#not-automated-tested)
+  - [Automated testing for comments](#automated-testing-for-comments)
+  - [Automated testing for glossary](#automated-testing-for-glossary)
+  - [Automated testing for movies](#automated-testing-for-movies)
+  - [Automated testing for profiles](#automated-testing-for-profiles)
+  - [Automated testing for wishlists](#automated-testing-for-wishlists)
+  - [Not automated tested](#examples-of-not-yet-automated-tested)
 - [User story testing](#user-story-testing)
 - [Manual testing](#manual-testing)
 - [Bugs](#bugs)
@@ -85,7 +85,37 @@ The testing was done using the Google Chrome browser. Chrome developer tools wer
 
 ### Backend testing
 
-Test files for the backend are located in the relevant app folder in the tests.py-file. Automated tests were run for almost all python code. The tests were executed with the command "python3 manage.py test" or for individual test files with the specific command "python3 manage.py test app.tests". In addition, the coverage tool was installed with the command "pip3 install coverage". With "coverage run manage.py test" the tool was executed and with "coverage report" the report results were created. For the automated tests, the sqlite3 database present in the settings.py was used.
+Test files for the backend are located in the relevant app folder in the tests.py-file. Automated tests were run for almost all python code. The tests were executed with the command
+
+```
+python3 manage.py test
+```
+
+or for individual test files with the specific command
+
+```
+python3 manage.py test app.tests
+```
+
+In addition, the coverage tool was installed with the command
+
+```
+pip3 install coverage
+```
+
+With
+
+```
+coverage run manage.py test
+```
+
+the tool was executed and with
+
+```
+coverage report
+```
+
+the report results were created. For the automated tests, the sqlite3 database present in the settings.py was used.
 
 ![Coverage report - part 1](/documentation/testing/coverage-console-part-1.png)
 ![Coverage report - part 2](/documentation/testing/coverage-console-part-2.png)
@@ -192,3 +222,29 @@ With "coverage html" a html report was created.
 | Test if the Wishlist entry is actually removed after deletion       | Verify if a Wishlist entry is no longer present after deletion.       |
 | Test if the content of the Wishlist can be successfully updated     | Check if the content of a Wishlist entry can be updated successfully. |
 | Test if the content of the Wishlist is separate for different users | Verify if the Wishlists are separate for different users.             |
+
+### Frontend testing
+
+Test files for some components of the frontend are located in the frontend folder in src - components - **tests**. Automated tests were run for some components. The tests were executed with the command:
+
+```
+npx eslint .
+```
+
+The [handlers.js](/frontend/src/mocks/handlers.js) file in the provided context is a file that utilizes the Mock Service Worker (MSW) library to intercept and mock API requests made by the frontend application during testing. MSW allows developers to simulate server responses and control the behavior of the API calls, enabling isolated testing of components without making actual network requests.
+
+In the handlers.js file in the frontend folder:
+
+The rest.get and rest.post functions from MSW are used to define mock handlers for specific API endpoints.
+For example, there are handlers for fetching user data (dj-rest-auth/user/) and logging out (dj-rest-auth/logout/).
+These handlers return mock responses using the ctx.json function for JSON responses and ctx.status for defining HTTP status codes.
+
+| Test Case                                                          | Description                                                                 | Use of handlers.js                                                                                                                                                    | Result |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Avatar: Check default height if not provided                       | Verify if the Avatar component has the default height if not provided.      | This test case might use handlers.js to mock a successful API response when fetching the user's profile information, including the avatar image URL.                  | Passed |
+| NavBar: Check rendering of Home Link                               | Verify if the NavBar renders the Home link.                                 | In this case, handlers.js may mock a successful API response for fetching user data, including the information needed to render the Home link in the NavBar.          | Passed |
+| NavBar: Check link to wishlist for a logged-in user                | Verify if the NavBar renders the link to the wishlist for a logged-in user. | handlers.js could mock the response when the NavBar fetches data to determine whether the logged-in user has a wishlist, enabling the rendering of the wishlist link. | Passed |
+| NotFound: Check rendering of NotFound component                    | Verify if the NotFound component renders with the correct message and link. | This test may utilize handlers.js to simulate a scenario where the requested page does not exist, ensuring that the NotFound component renders as expected.           | Passed |
+| ScrollToTop: Check scrolling to the top when the button is clicked | Verify if the ScrollToTop button scrolls to the top when clicked.           | handlers.js might not be directly involved in this test unless there are API calls related to scrolling behavior, in which case it would mock those API responses.    | Passed |
+| Searchbar: Check query update on input change                      | Verify if the Searchbar updates the query when the input changes.           | This test could use handlers.js to mock API responses for fetching search results based on the updated query when the input changes.                                  | Passed |
+| Searchbar: Check prevention of form submission                     | Verify if the Searchbar prevents form submission.                           | handlers.js may be employed to mock API responses when attempting to submit the search form, ensuring that the form submission is prevented.                          | Passed |
