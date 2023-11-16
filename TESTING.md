@@ -183,3 +183,12 @@ With "coverage html" a html report was created.
 | `WishlistModelTestCase.test_wishlist_unique_together` | Check if creating a duplicate wishlist entry fails               | Passed |
 | `WishlistAPITestCase.test_wishlist_list_view`         | Check if the wishlist list view returns HTTP 200 OK              | Passed |
 | `WishlistAPITestCase.test_wishlist_detail_view`       | Check if the wishlist detail view returns HTTP 200 OK            | Passed |
+
+#### Examples of not yet automated tested
+
+| Not Considered Test Case                                            | Description                                                           |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Test if a user can create multiple entries                          | Check if a user can add multiple entries to the Wishlist.             |
+| Test if the Wishlist entry is actually removed after deletion       | Verify if a Wishlist entry is no longer present after deletion.       |
+| Test if the content of the Wishlist can be successfully updated     | Check if the content of a Wishlist entry can be updated successfully. |
+| Test if the content of the Wishlist is separate for different users | Verify if the Wishlists are separate for different users.             |
