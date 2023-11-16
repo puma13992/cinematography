@@ -161,3 +161,15 @@ With "coverage html" a html report was created.
 | `MovieDetailViewTests.test_logged_out_user_cant_update_movie`    | Check if a logged-out user can't update a movie            | Passed |
 | `MovieDetailViewTests.test_logged_out_user_cant_delete_movie`    | Check if a logged-out user can't delete a movie            | Passed |
 | `MovieDetailViewTests.test_logged_in_user_can_update_own_movie`  | Check if a logged-in user can update their own movie       | Passed |
+
+#### Automated testing for profiles
+
+| Test Case                                                                  | Description                                                        | Result |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------ |
+| `ProfileListViewTests.test_profile_automatically_created_on_user_creation` | Check if a profile is automatically created when a user is created | Passed |
+| `ProfileListViewTests.test_can_list_profile`                               | Check if the profile list view returns HTTP 200 OK                 | Passed |
+| `ProfileDetailViewTests.test_cant_retrieve_profile_using_invalid_id`       | Check if profile retrieval fails with an invalid ID                | Passed |
+| `ProfileDetailViewTests.test_can_retrieve_profile_using_valid_id`          | Check if a profile can be retrieved with a valid ID                | Passed |
+| `ProfileDetailViewTests.test_logged_in_user_can_update_own_profile`        | Check if a logged-in user can update their own profile             | Passed |
+| `ProfileDetailViewTests.test_logged_out_user_cant_update_own_profile`      | Check if a logged-out user can't update a profile                  | Passed |
+| `ProfileDetailViewTests.test_user_cant_update_someone_elses_profile`       | Check if a user can't update someone else's profile                | Passed |
