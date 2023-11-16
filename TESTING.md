@@ -173,3 +173,13 @@ With "coverage html" a html report was created.
 | `ProfileDetailViewTests.test_logged_in_user_can_update_own_profile`        | Check if a logged-in user can update their own profile             | Passed |
 | `ProfileDetailViewTests.test_logged_out_user_cant_update_own_profile`      | Check if a logged-out user can't update a profile                  | Passed |
 | `ProfileDetailViewTests.test_user_cant_update_someone_elses_profile`       | Check if a user can't update someone else's profile                | Passed |
+
+#### Automated testing for wishlists
+
+| Test Case                                             | Description                                                      | Result |
+| ----------------------------------------------------- | ---------------------------------------------------------------- | ------ |
+| `WishlistModelTestCase.test_wishlist_creation`        | Check if a wishlist entry is created with the correct attributes | Passed |
+| `WishlistModelTestCase.test_wishlist_str_method`      | Check if the string representation of Wishlist is as expected    | Passed |
+| `WishlistModelTestCase.test_wishlist_unique_together` | Check if creating a duplicate wishlist entry fails               | Passed |
+| `WishlistAPITestCase.test_wishlist_list_view`         | Check if the wishlist list view returns HTTP 200 OK              | Passed |
+| `WishlistAPITestCase.test_wishlist_detail_view`       | Check if the wishlist detail view returns HTTP 200 OK            | Passed |
