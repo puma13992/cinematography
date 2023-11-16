@@ -421,6 +421,7 @@ Custom components were created to enable the code and functionality to re-used t
 - [AlertPopUp.js](/frontend/src/components/AlertPopup.js) was created to enable messaging on user success and error actions
 - [Asset.js](/frontend/src/components/Asset.js) was created to display a spinner when data is being fetched to notify the user that an action is being performed
 - [Avatar.js](/frontend/src/components/Avatar.js) was created to display the users profile image throughout the app
+- [DeleteModal.js](/frontend/src/components/DeleteModal.js) was created to ask the user if he/she really wants to delete something (e.g. a movie, comment or glossary item)
 - [MoreDropdown.js](/frontend/src/components/MoreDropdown.js) was created for authenticated users to be able to edit and/or delete content
 - [NavBar.js](/frontend/src/components/NavBar.js) was created to display the navigation menu and display different icons depending on if the user is logged in or not
 - [NotFound.js](/frontend/src/components/NotFound.js) was created to display a message to the user if the content they are looking for does not exist
