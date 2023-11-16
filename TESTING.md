@@ -78,3 +78,20 @@ The testing was done using the Google Chrome browser. Chrome developer tools wer
   Performance could be improved on by adding lazy loading to the images and implementing a CDN with caching.
 
 ![Mobile results](/documentation/testing/lighthouse-mobile.png)
+
+## Automated testing
+
+<a href="#top">Back to the top.</a>
+
+### Backend testing
+
+Test files for the backend are located in the relevant app folder in the tests.py-file. Automated tests were run for almost all python code. The tests were executed with the command "python3 manage.py test" or for individual test files with the specific command "python3 manage.py test app.tests". In addition, the coverage tool was installed with the command "pip3 install coverage". With "coverage run manage.py test" the tool was executed and with "coverage report" the report results were created. For the automated tests, the sqlite3 database present in the settings.py was used.
+
+![Coverage report - part 1](/documentation/testing/coverage-console-part-1.png)
+![Coverage report - part 2](/documentation/testing/coverage-console-part-2.png)
+
+With "coverage html" a html report was created.
+
+![HTML report - part 1](/documentation/testing/coverage-report-part-1.png)
+![HTML report - part 2](/documentation/testing/coverage-report-part-2.png)
+![HTML report - part 3](/documentation/testing/coverage-report-part-3.png)
