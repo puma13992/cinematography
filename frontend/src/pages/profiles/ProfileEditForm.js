@@ -17,8 +17,11 @@ import {
 } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Forms.module.css";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const ProfileEditForm = () => {
+  useRedirect("loggedOut");
+
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();

@@ -5,8 +5,11 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import useAlert from "../../hooks/useAlert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const UserPasswordForm = () => {
+  useRedirect("loggedOut");
+
   const { setAlert } = useAlert();
   const history = useHistory();
   const { id } = useParams();

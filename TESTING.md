@@ -8,6 +8,7 @@
   - [Automated testing for profiles](#automated-testing-for-profiles)
   - [Automated testing for wishlists](#automated-testing-for-wishlists)
   - [Not automated tested](#examples-of-not-yet-automated-tested)
+  - [Frontend testing](#frontend-testing)
 - [User story testing](#user-story-testing)
 - [Manual testing](#manual-testing)
 - [Bugs](#bugs)
@@ -252,3 +253,7 @@ These handlers return mock responses using the ctx.json function for JSON respon
 All frontend tests were running before following the [steps for deployment](https://code-institute-students.github.io/advfe-unified-workspace/deployment/00-deployment) for combined backend and frontend. After following these steps and especially adding the baseUrl in axiosDefaults.js to "/api", one of the navbar tests failed:
 
 ![Frontend tests](/documentation/testing/frontend-tests.png)
+
+## User story testing
+
+<a href="#top">Back to the top.</a>
