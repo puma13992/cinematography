@@ -177,6 +177,7 @@ Initial wireframes
 - **Navigation Bar**
 
   - The navigation bar appears on each page.
+  - The navigation bar is sticky.
   - The home page can be displayed by clicking on the logo on the left side.
   - The navigation bar for unauthenticated users contains links to the home screen (via de logo and via the link), movies page, glossary page, sign in and sign up.
 
@@ -225,7 +226,7 @@ Initial wireframes
 
   ![Profile](/documentation/features/profiles-page-with-content.png)
 
-  - Users can visit other users profiles by clicking on their username.
+  - All users (authenticated or not) can visit other users profiles by clicking on their username.
 
 - **Edit profile**
 
@@ -234,12 +235,16 @@ Initial wireframes
 
   ![Edit profile](/documentation/features/profile-edit-form.png)
 
+  - Unauthenticated users are redirected to the homepage and receive an error message via an alert.
+
 - **Change password**
 
   - Logged in users can change their password by clicking on the drop down button in their profile card.
   - Users must enter their new password twice.
 
   ![Change password](/documentation/features/change-password-in-profile.png)
+
+  - Unauthenticated users are redirected to the homepage and receive an error message via an alert.
 
 - **Messages**
 
@@ -259,7 +264,7 @@ Initial wireframes
   ![Browse all movies - empty](/documentation/features/movies-empty.png)
   ![Browse all movies](/documentation/features/movies-page.png)
 
-  - Users can search for movies by username, title, release, director and content keywords.
+  - All users (authenticated or not) can search for movies by username, title, release, director and content keywords.
 
   ![Search by username](/documentation/features/search-by-username.png)
   ![Search by title](/documentation/features/search-by-title.png)
@@ -267,7 +272,7 @@ Initial wireframes
   ![Search by director](/documentation/features/search-by-director.png)
   ![Search by content keywords](/documentation/features/search-by-keywords.png)
 
-  - Users can filter movies by specific genre categories.
+  - All users (authenticated or not) can filter movies by specific genre categories.
 
   ![Filter movies](/documentation/features/filter-movies.png)
 
@@ -276,6 +281,9 @@ Initial wireframes
   - When logged in, users can add movies to their personal wishlist by clicking on the icon.
   - When logged in, users can delete movies from their personal wishlist by clicking on the icon.
   - Logged in users cannot add their own movies to their wishlist.
+  - Unauthenticated users are informed that they have to be logged in to add movies to a wishlist.
+
+  ![Unauthenticated users wishlist](/documentation/features/unauthenticated-wishlist.png)
 
 - **Single movie with comments**
 
@@ -300,9 +308,12 @@ Initial wireframes
   ![Edit comment](/documentation/features/comment-edit-form.png)
 
   - If the user is the owner of the movie, he/she can edit or delete it by clicking on the three dots to get to the drop-down icons.
-  - Clicking the delete icon will delete the comment. There is no extra confirmation.
+  - Clicking the delete icon will delete the comment. There is an extra confirmation via a modal.
 
+  ![Delete confirm modal](/documentation/features/delete-confirm-modal.png)
   ![Delete comment](/documentation/features/comment-deleted.png)
+
+  - Unauthenticated users are redirected to the homepage and receive an error message via an alert.
 
   - **Add a movie**
 
@@ -313,6 +324,8 @@ Initial wireframes
 
   ![Add movie form](/documentation/features/add-movie-form.png)
 
+  - Unauthenticated users are redirected to the homepage and receive an error message via an alert.
+
 - **Edit a movie**
 
   - If the user is the owner of the movie, he/she can edit it by clicking on the three dots to get to the drop-down edit icon on the single movie page.
@@ -320,10 +333,12 @@ Initial wireframes
 
   ![Edit movie form](/documentation/features/edit-movie-form.png)
 
+- Unauthenticated users are redirected to the homepage and receive an error message via an alert.
+
 - **Delete a movie**
 
   - If the user is the owner of the movie, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the single movie page.
-  - Clicking the delete icon will delete the movie. There is no extra confirmation.
+  - Clicking the delete icon will delete the movie. There is an extra confirmation via a modal.
 
   ![Delete movie message](/documentation/features/message-movie-deleted.png)
 
@@ -339,7 +354,7 @@ Initial wireframes
 
   ![Empty glossary](/documentation/features/empty-glossary-unauthenticated.png)
 
-  - Users can search for glossary items by title.
+  - All users (authenticated or not) can search for glossary items by title.
 
   ![Search glossary items](/documentation/features/glossary-search.png)
 
@@ -367,6 +382,8 @@ Initial wireframes
   ![Add a glossary item form](/documentation/features/glossary-create-form.png)
   ![Warnings](/documentation/features/glossary-unique-message-not-blank.png)
 
+- Unauthenticated users are redirected to the homepage and receive an error message via an alert.
+
 - **Edit a glossary item**
 
   - Once logged in, users can edit any glossary item by clicking on the three dots on the glossary page or the single glossary item page to access the drop-down icons.
@@ -374,10 +391,12 @@ Initial wireframes
 
   ![Edit glossary item form](/documentation/features/edit-glossary-form.png)
 
+- Unauthenticated users are redirected to the homepage and receive an error message via an alert.
+
 - **Delete a glossary item**
 
   - If the user is the creator of the glossary item, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the glossary page or the single glossary item page.
-  - Clicking the delete icon will delete the glossary item. There is no extra confirmation.
+  - Clicking the delete icon will delete the glossary item. There is an extra confirmation via a modal.
 
   ![Delete glossary item message](/documentation/features/message-glossary-deleted.png)
 
@@ -401,6 +420,8 @@ Initial wireframes
   - Clicking the delete icon will delete the movie from the wishlist. There is no extra confirmation.
 
   ![Wishlist - delete movie](/documentation/features/wishlist-deleted.png)
+
+- Unauthenticated users are redirected to the homepage and receive an error message via an alert.
 
 - **404 page**
 
