@@ -9,8 +9,7 @@
   - [Automated testing for wishlists](#automated-testing-for-wishlists)
   - [Not automated tested](#examples-of-not-yet-automated-tested)
   - [Frontend testing](#frontend-testing)
-- [User story testing](#user-story-testing)
-- [Manual testing](#manual-testing)
+- [User story & manual testing](#user-story--manual-testing)
 - [Bugs](#bugs)
   - [Fixed bugs](#fixed-bugs)
   - [(Possible) Remaining bugs](#possible-remaining-bugs)
@@ -284,3 +283,135 @@ Images of the tested features can be found in [README.md](README.md) in the feat
 | Delete glossary term     | authenticated user | delete my own glossary term                                                              | keep it up to date                                                                                         | for authenticated users only                                                                                     | Automatically & manually | Passed       | Manually                                | Passed                                                                            |
 | Edit password            | authenticated user | edit my password                                                                         | change it if I want                                                                                        | for authenticated users only; unauthenticated users receive an error message and are redirected to the home page | /                        | /            | Manually                                | Passed                                                                            |
 | Confirm delete actions   | authenticated user | confirm or cancel a deletion                                                             | make the right decision                                                                                    | for authenticated users only                                                                                     | /                        | /            | Manually                                | Passed                                                                            |
+
+## Bugs
+
+<a href="#top">Back to the top.</a>
+
+### Fixed bugs
+
+#### Default user profiles image url in models.py
+
+Fixed an incorrect url for the default profile image
+
+#### Navbar link for routing
+
+For a correct Nav-Link the code was fixed with
+
+```
+NavLink
+```
+
+instead of
+
+```
+Nav.Link
+```
+
+#### dj-rest-auth bug for logging out
+
+It turns out that dj-rest-auth has a bug that doesn’t allow users to log out (ref: DRF Rest Auth Issues).
+
+The issue is that the samesite attribute we set to ‘None’ in settings.py (JWT_AUTH_SAMESITE = 'None') is not passed to the logout view. This means that we can’t log out, but must wait for the refresh token to expire instead.
+
+One way to fix this issue is to have our own logout view, where we set both cookies to an empty string and pass additional attributes like secure, httponly and samesite, which was left out by mistake by the library.
+
+I followed the [steps from Code Institute](#https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DRF+2021_T1/courseware/a6250c9e9b284dbf99e53ac8e8b68d3e/0c9a4768eea44c38b06d6474ad21cf75/) to fix this.
+
+#### Fix duplication of dj-rest-auth-registration in settings.py
+
+There was a duplicate in the settings.py which I removed.
+
+#### Redirection for logged out users on wishlist
+
+I added a redirect for unauthenticated users on the wishlist, so they have to log in to see their wishlist.
+
+#### Show edit glossary dropdown only for logged in users
+
+I forgot the
+
+```
+currentUser
+```
+
+for the MoreDropdown code. I added this so that the edit/delete dropdown is only shown to authenticated users.
+
+#### Fix image input for movie create form
+
+It was not possible to add a movie without an image (and so the default image was not loaded). I fixed this by replacing
+
+```
+formData.append("image", imageInput.current.files[0]);
+```
+
+with
+
+```
+if (imageInput?.current?.files[0]) {
+			formData.append("image", imageInput.current.files[0]);
+		}
+```
+
+#### Fix filterset field for owner profile & fix filterset field for created by for glossary
+
+I forgot to add the filterset field for owner_profile in the MovieList and the filterset field for created_by in the GlossaryList. Both fields are important for the filter functionality.
+
+#### Fix profile data context
+
+When I manually entered profile IDs in the browser, the profile card with the profile owner's name and information did not display correctly. I fixed this by adding
+
+```
+popularProfiles: { results: [] },
+```
+
+and replacing
+
+```
+pageProfile: data,
+```
+
+with
+
+```
+popularProfiles: data,
+```
+
+#### Lost password functionality
+
+I would implement a lost password feature for registered users who have lost/forgotten their password. But even after many hours of consulting with a tutor, the email link problem (the link redirected to a wrong URL and/or the UID and token were incorrect) could not be fixed. I have removed the feature for now. It may be a good feature to implement in a later version.
+
+#### Glossary: edit items
+
+To allow all authenticated users to edit any glossary entry, even if they are not the creator, I need to import the extra permissions for IsAuthenticated and IsAuthenticatedOrReadOnly.
+
+#### Glossary unique item
+
+To make sure that a glossary title or entry is unique, I added the convert to uppercase functionality in the serialisers and a function that checks if an entry with the converted title already exists. Unfortunately, the `unique=True` method in models.py does not work as expected.
+
+#### Testing bugs for updating movie and glossary item
+
+As I was having some problems testing the functionality to update a film and glossary entry, I consulted a tutor. Their advice was to change the test code to `partial true`. The partial=true parameter allows partial updates, i.e. not all fields are mandatory.
+
+### (Possible) Remaining bugs
+
+#### Update node
+
+Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode. A tutor told me that these err ssl protocol errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16. I updated the node version, which should have fixed the bug. When I've tested the site, the bug no longer appears.
+
+#### handlers.js
+
+To run the tests for the frontend, I had to use the `window.location` API to get the current URL in my workspace instead of using the baseURL from. Maybe this is because I set up the backend and frontend in the same repository. After merging the backend/API with my frontend, one of the frontend tests failed, even though the test passed before I followed the merge steps.
+
+#### Delete glossary icon
+
+The delete icon for glossary items is displayed to any authenticated user. If the user is not the creator of the glossary item, a warning message will be displayed. It has not been possible to make the icon appear only when the creator is logged in.
+
+#### Dismiss button on alerts
+
+If a user clicks on the dismiss button in an alert, they will be redirected to the home page.
+
+#### Overflow
+
+In some cases an overflow will occur, for example on mobile phones or when someone creates a comment. This bug may also occur in other areas that use infinite scrolling.
+
+![Overflow](/documentation/testing/overflow.png)
