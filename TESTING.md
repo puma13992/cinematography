@@ -1,14 +1,14 @@
 # Testing
 
 - [Validator testing](#validator-testing)
-- [Automated testing](#automated-testing)
+- [Automated testing backend](#automated-testing-backend)
   - [Automated testing for comments](#automated-testing-for-comments)
   - [Automated testing for glossary](#automated-testing-for-glossary)
   - [Automated testing for movies](#automated-testing-for-movies)
   - [Automated testing for profiles](#automated-testing-for-profiles)
   - [Automated testing for wishlists](#automated-testing-for-wishlists)
-  - [Not automated tested](#examples-of-not-yet-automated-tested)
-  - [Frontend testing](#frontend-testing)
+  - [Not automated tested/Manual backend testing](#not-automated-testedmanual-backend-testing)
+- [Automated frontend testing](#automated-frontend-testing)
 - [User story & manual testing](#user-story--manual-testing)
 - [Bugs](#bugs)
   - [Fixed bugs](#fixed-bugs)
@@ -79,11 +79,9 @@ The testing was done using the Google Chrome browser. Chrome developer tools wer
 
 ![Mobile results](/documentation/testing/lighthouse-mobile.png)
 
-## Automated testing
+## Automated testing backend
 
 <a href="#top">Back to the top.</a>
-
-### Backend testing
 
 Test files for the backend are located in the relevant app folder in the tests.py-file. Automated tests were run for almost all python code. The tests were executed with the command
 
@@ -214,7 +212,7 @@ With "coverage html" a html report was created.
 | `WishlistAPITestCase.test_wishlist_list_view`         | Check if the wishlist list view returns HTTP 200 OK              | Passed |
 | `WishlistAPITestCase.test_wishlist_detail_view`       | Check if the wishlist detail view returns HTTP 200 OK            | Passed |
 
-#### Examples of not yet automated tested
+#### Not automated tested/Manual backend testing
 
 | Not Considered Test Case                                            | Description                                                           |
 | ------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -223,7 +221,29 @@ With "coverage html" a html report was created.
 | Test if the content of the Wishlist can be successfully updated     | Check if the content of a Wishlist entry can be updated successfully. |
 | Test if the content of the Wishlist is separate for different users | Verify if the Wishlists are separate for different users.             |
 
-### Frontend testing
+##### API Endpoint Tests
+
+|  URL Route   | Deployed Check |
+| :----------: | :------------: |
+|   /movies/   |     Works      |
+|  /movies/4/  |     Works      |
+|  /profiles/  |     Works      |
+| /profiles/3/ |     Works      |
+|  /comments/  |     Works      |
+| /comments/3/ |     Works      |
+|  /glossary/  |     Works      |
+| /glossary/4/ |     Works      |
+|  /wishlist/  |     Works      |
+| /wishlist/3/ |     Works      |
+|      /       |     Works      |
+
+##### Search and Filter testing
+
+| Item  | Search                                                                                   | Wishlist page                                                                      | Filter by category                         | Filter own movies                                                                  |
+| ----- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| Movie | search movies and filter them by username, title, release, director and content keywords | working the wishlist page updates and removes movies based on if it's added or not | filter movies by specific genre categories | working the profile page displays all movies created by the current logged in user |
+
+## Automated frontend testing
 
 Test files for some components of the frontend are located in the frontend folder in src - components - **tests**. Automated tests were run for some components. The tests were executed with the command:
 
@@ -433,3 +453,10 @@ When a user tries to add a glossary entry with a title that already exists, a 40
 When a user clicks really fast, sometimes an error listener appears in the console:
 
 ![Error listener](/documentation/testing/error-listener.png)
+
+#### Deleted items
+
+If a user tries to access a deleted movie or glossary item via the URL, they will reach the page, but with some sort of broken view of the deleted entry and a 400 and 405 error in the console.
+
+![Deleted movie](/documentation/testing/deleted-movie-via-url.png)
+![Deleted glossary item](/documentation/testing//deleted-glossary-item-via-url.png)
