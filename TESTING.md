@@ -415,3 +415,21 @@ If a user clicks on the dismiss button in an alert, they will be redirected to t
 In some cases an overflow will occur, for example on mobile phones or when someone creates a comment. This bug may also occur in other areas that use infinite scrolling.
 
 ![Overflow](/documentation/testing/overflow.png)
+
+#### 401 errors
+
+When I first visit the home page, I get three 401 errors in the console.
+
+![401 errors](/documentation/testing/three-401-errors.png)
+
+#### 400 error
+
+When a user tries to add a glossary entry with a title that already exists, a 400 error appears in the console and a warning in the browser: "Request failed with status 400".
+
+![400 error](/documentation/testing/error-400-sending-duplicate.png)
+
+#### Error listener
+
+When a user clicks really fast, sometimes an error listener appears in the console:
+
+![Error listener](/documentation/testing/error-listener.png)
