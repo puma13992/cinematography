@@ -4,8 +4,10 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Glossary from "./Glossary";
 import ScrollToTop from "../../components/ScrollToTop";
+import Asset from "../../components/Asset";
 
 function GlossaryPage() {
+  const [hasLoaded, setHasLoaded] = useState(false);
   const { id } = useParams();
   const [glossary, setGlossary] = useState({ results: [] });
 
@@ -16,22 +18,34 @@ function GlossaryPage() {
           axiosReq.get(`/glossary/${id}`),
         ]);
         setGlossary({ results: [glossary] });
+        setHasLoaded(true);
       } catch (err) {
         // console.log(err);
       }
     };
 
-    handleMount();
+    setHasLoaded(false);
+    const timer = setTimeout(() => {
+      handleMount();
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [id]);
 
   return (
     <Row>
       <Col className="py-2">
-        <Glossary
-          {...glossary.results[0]}
-          setGlossary={setGlossary}
-          glossaryPage
-        />
+        {hasLoaded ? (
+          <Glossary
+            {...glossary.results[0]}
+            setGlossary={setGlossary}
+            glossaryPage
+          />
+        ) : (
+          <Asset spinner />
+        )}
       </Col>
       <div>
         <ScrollToTop />
