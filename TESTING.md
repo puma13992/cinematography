@@ -412,9 +412,18 @@ To make sure that a glossary title or entry is unique, I added the convert to up
 
 As I was having some problems testing the functionality to update a film and glossary entry, I consulted a tutor. Their advice was to change the test code to `partial true`. The partial=true parameter allows partial updates, i.e. not all fields are mandatory.
 
+#### Deleted items
+
+If a user tried to access a deleted movie or glossary item via the URL, they would reach the page, but with some sort of broken view of the deleted entry and a 400 and 405 error in the console.
+
+![Deleted movie](/documentation/testing/deleted-movie-via-url.png)
+![Deleted glossary item](/documentation/testing//deleted-glossary-item-via-url.png)
+
+This is fixed by adding the hasLoaded code and a spinner so that the page doesn`t show the broken view anymore.
+
 ### (Possible) Remaining bugs
 
-#### Update node
+#### Update node (possible remaining)
 
 Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode. A tutor told me that these err ssl protocol errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16. I updated the node version, which should have fixed the bug. When I've tested the site, the bug no longer appears.
 
@@ -453,10 +462,3 @@ When a user tries to add a glossary entry with a title that already exists, a 40
 When a user clicks really fast, sometimes an error listener appears in the console:
 
 ![Error listener](/documentation/testing/error-listener.png)
-
-#### Deleted items
-
-If a user tries to access a deleted movie or glossary item via the URL, they will reach the page, but with some sort of broken view of the deleted entry and a 400 and 405 error in the console.
-
-![Deleted movie](/documentation/testing/deleted-movie-via-url.png)
-![Deleted glossary item](/documentation/testing//deleted-glossary-item-via-url.png)
