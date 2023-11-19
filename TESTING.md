@@ -423,11 +423,11 @@ If a user tried to access a deleted movie or glossary item via the URL, they wou
 
 This is fixed by adding the hasLoaded code and a spinner so that the page doesn`t show the broken view anymore.
 
-### (Possible) Remaining bugs
+### Remaining bugs
 
 #### Update node/ERR_SSL_PROTOCOL-ERROR
 
-Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode or even that the page is not loading properly. A tutor told me that "these errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16". I have tried updating the node version, but sometimes the error reappears. Wait a little and refresh to load the page usually helps. I found this [source](https://help.heroku.com/DHJMMZ51/fix-node-js-openssl-issues-on-heroku-22) which verify the error.
+Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode or even that the enitre homepage is not loading properly. A tutor told me that "these errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16". I have tried updating the node version, but sometimes the error reappears. Wait a little and refresh to load the page usually helps or change the browser (it happens mostly in Google Chrome).
 
 #### handlers.js
 
