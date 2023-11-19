@@ -44,7 +44,7 @@ Testing has taken place continuously throughout the development of the project. 
 
   - All self written python-code was run through the Code Institute Python Linter and showed no errors.
 
-  - Only settings.py showed some errors. There are 5 lines to long but these are REST_AUTH_SERIALIZERS and the AUTH_PASSWORD_VALIDATORS which can not be shortend.
+  - Only settings.py showed some errors. There are 5 lines too long but these are REST_AUTH_SERIALIZERS and the AUTH_PASSWORD_VALIDATORS which can not be shortend.
 
   ![PEP8 Validator settings.py](/documentation/testing/pep-8-settings-py.png)
 
@@ -245,7 +245,9 @@ With "coverage html" a html report was created.
 
 ## Automated frontend testing
 
-Test files for some components of the frontend are located in the frontend folder in src - components - **tests**. Automated tests were run for some components. The tests were executed with the command:
+<a href="#top">Back to the top.</a>
+
+Test files for some components of the frontend are located in the frontend folder in src - components - `__tests__`. Automated tests were run for some components. The tests were executed with the command:
 
 ```
 npm test
@@ -259,15 +261,15 @@ The rest.get and rest.post functions from MSW are used to define mock handlers f
 For example, there are handlers for fetching user data (dj-rest-auth/user/) and logging out (dj-rest-auth/logout/).
 These handlers return mock responses using the ctx.json function for JSON responses and ctx.status for defining HTTP status codes.
 
-| Test Case                                                          | Description                                                                 | Use of handlers.js                                                                                                                                                    | Result                                          |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Avatar: Check default height if not provided                       | Verify if the Avatar component has the default height if not provided.      | This test case might use handlers.js to mock a successful API response when fetching the user's profile information, including the avatar image URL.                  | Passed                                          |
-| NavBar: Check rendering of Home Link                               | Verify if the NavBar renders the Home link.                                 | In this case, handlers.js may mock a successful API response for fetching user data, including the information needed to render the Home link in the NavBar.          | Passed                                          |
-| NavBar: Check link to wishlist for a logged-in user                | Verify if the NavBar renders the link to the wishlist for a logged-in user. | handlers.js could mock the response when the NavBar fetches data to determine whether the logged-in user has a wishlist, enabling the rendering of the wishlist link. | Passed (before connecting backend wit frontend) |
-| NotFound: Check rendering of NotFound component                    | Verify if the NotFound component renders with the correct message and link. | This test may utilize handlers.js to simulate a scenario where the requested page does not exist, ensuring that the NotFound component renders as expected.           | Passed                                          |
-| ScrollToTop: Check scrolling to the top when the button is clicked | Verify if the ScrollToTop button scrolls to the top when clicked.           | handlers.js might not be directly involved in this test unless there are API calls related to scrolling behavior, in which case it would mock those API responses.    | Passed                                          |
-| Searchbar: Check query update on input change                      | Verify if the Searchbar updates the query when the input changes.           | This test could use handlers.js to mock API responses for fetching search results based on the updated query when the input changes.                                  | Passed                                          |
-| Searchbar: Check prevention of form submission                     | Verify if the Searchbar prevents form submission.                           | handlers.js may be employed to mock API responses when attempting to submit the search form, ensuring that the form submission is prevented.                          | Passed                                          |
+| Test Case                                                          | Description                                                                 | Use of handlers.js                                                                                                                                                    | Result                                                                    |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Avatar: Check default height if not provided                       | Verify if the Avatar component has the default height if not provided.      | This test case might use handlers.js to mock a successful API response when fetching the user's profile information, including the avatar image URL.                  | Passed                                                                    |
+| NavBar: Check rendering of Home Link                               | Verify if the NavBar renders the Home link.                                 | In this case, handlers.js may mock a successful API response for fetching user data, including the information needed to render the Home link in the NavBar.          | Passed                                                                    |
+| NavBar: Check link to wishlist for a logged-in user                | Verify if the NavBar renders the link to the wishlist for a logged-in user. | handlers.js could mock the response when the NavBar fetches data to determine whether the logged-in user has a wishlist, enabling the rendering of the wishlist link. | Passed (before connecting backend wit frontend; after it the test failed) |
+| NotFound: Check rendering of NotFound component                    | Verify if the NotFound component renders with the correct message and link. | This test may utilize handlers.js to simulate a scenario where the requested page does not exist, ensuring that the NotFound component renders as expected.           | Passed                                                                    |
+| ScrollToTop: Check scrolling to the top when the button is clicked | Verify if the ScrollToTop button scrolls to the top when clicked.           | handlers.js might not be directly involved in this test unless there are API calls related to scrolling behavior, in which case it would mock those API responses.    | Passed                                                                    |
+| Searchbar: Check query update on input change                      | Verify if the Searchbar updates the query when the input changes.           | This test could use handlers.js to mock API responses for fetching search results based on the updated query when the input changes.                                  | Passed                                                                    |
+| Searchbar: Check prevention of form submission                     | Verify if the Searchbar prevents form submission.                           | handlers.js may be employed to mock API responses when attempting to submit the search form, ensuring that the form submission is prevented.                          | Passed                                                                    |
 
 All frontend tests were running before following the [steps for deployment](https://code-institute-students.github.io/advfe-unified-workspace/deployment/00-deployment) for combined backend and frontend. After following these steps and especially adding the baseUrl in axiosDefaults.js to "/api", one of the navbar tests failed:
 
@@ -275,9 +277,9 @@ All frontend tests were running before following the [steps for deployment](http
 
 ## User story & manual testing
 
-Images of the tested features can be found in [README.md](README.md) in the features section.
-
 <a href="#top">Back to the top.</a>
+
+Images of the tested features can be found in [README.md](README.md) in the features section.
 
 | User story               | as                 | I want to                                                                                | so that I can                                                                                              | Supplemented test criteria                                                                                       | Tested (Backend)         | Test results | Tested (Frontend)                       | Test results                                                                      |
 | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------ | --------------------------------------- | --------------------------------------------------------------------------------- |
@@ -312,7 +314,7 @@ Images of the tested features can be found in [README.md](README.md) in the feat
 
 #### Default user profiles image url in models.py
 
-Fixed an incorrect url for the default profile image
+Fixed an incorrect url for the default profile image.
 
 #### Navbar link for routing
 
@@ -402,19 +404,19 @@ I would implement a lost password feature for registered users who have lost/for
 
 #### Glossary: edit items
 
-To allow all authenticated users to edit any glossary entry, even if they are not the creator, I need to import the extra permissions for IsAuthenticated and IsAuthenticatedOrReadOnly.
+To allow all authenticated users to edit any glossary item, even if they are not the creator, I need to import the extra permissions for IsAuthenticated and IsAuthenticatedOrReadOnly.
 
 #### Glossary unique item
 
-To make sure that a glossary title or entry is unique, I added the convert to uppercase functionality in the serialisers and a function that checks if an entry with the converted title already exists. Unfortunately, the `unique=True` method in models.py does not work as expected.
+To make sure that a glossary title is unique, I added the convert to uppercase functionality in the serialisers and a function that checks if an entry with the converted title already exists. Unfortunately, the `unique=True` method in models.py does not work as expected.
 
 #### Testing bugs for updating movie and glossary item
 
-As I was having some problems testing the functionality to update a film and glossary entry, I consulted a tutor. Their advice was to change the test code to `partial true`. The partial=true parameter allows partial updates, i.e. not all fields are mandatory.
+As I was having some problems testing the functionality to update a movie and glossary item, I consulted a tutor. Their advice was to change the test code to `partial true`. The partial=true parameter allows partial updates, i.e. not all fields are mandatory.
 
 #### Deleted items
 
-If a user tried to access a deleted movie or glossary item via the URL, they would reach the page, but with some sort of broken view of the deleted entry and a 400 and 405 error in the console.
+If a user tried to access a deleted movie or glossary item via the URL, they would reach the page, but with some sort of broken view of the deleted entry and a 400 and 404 error in the console.
 
 ![Deleted movie](/documentation/testing/deleted-movie-via-url.png)
 ![Deleted glossary item](/documentation/testing//deleted-glossary-item-via-url.png)
@@ -425,7 +427,7 @@ This is fixed by adding the hasLoaded code and a spinner so that the page doesn`
 
 #### Update node (possible remaining)
 
-Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode. A tutor told me that these err ssl protocol errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16. I updated the node version, which should have fixed the bug. When I've tested the site, the bug no longer appears.
+Sometimes ERR_SSL_PROTOCOL-ERROR would show up in the console and cause strange problems like a user logging out after clicking save to add a movie or a page staying in load mode or even that the page is not loading properly. A tutor told me that "these errors are usually related to the node version, the project is dependent on an older version of node and one of the reasons why so many students have had to manually use the commands to install and use version 16". I updated the node version, which should have fixed the bug. When I've tested the site, the errors in the console no longer appears.
 
 #### handlers.js
 
