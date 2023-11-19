@@ -25,7 +25,7 @@
   - [Frameworks libraries, programs](#frameworks-libraries-programs)
 - [Testing](TESTING.md)
 - [Deployment](#deployment)
-  - [General](#general)
+  - [General](#general-1)
   - [Repository/Workspace set up](#repositoryworkspace-set-up)
   - [Backend/API](#backendapi)
   - [Frontend/Project unification](#frontendproject-unification)
@@ -35,11 +35,11 @@
 
 # Introduction: Cinematography of Holocaust
 
-This is the Project Portfolio 5 for Code Institute Full-stack development program. Cinematography of Holocaust is a Django Rest Framework and React.js project that runs on Heroku.
+This is the Project Portfolio 5 for Code Institute full-stack development program. Cinematography of Holocaust is a Django Rest Framework and React.js project that runs on Heroku.
 
 The site allows users to register and log in from the frontend. Once registered and logged in users can edit their profile, add, edit and delete movies and glossary items.
 
-The live website on Heroku can be accessed at the following link: [View my Live Website here](https://cinematography-455aca732715.herokuapp.com/)
+The live website on Heroku can be accessed via the following link: [View my Live Website here](https://cinematography-455aca732715.herokuapp.com/)
 
 ![Cinematography of Holocaust](/documentation/design/cinematography-website.png)
 
@@ -99,7 +99,7 @@ Milestones were used to create sprints. There were 4 sprints each dated appropri
 
 ### Colors
 
-I decided to use only basic colors, mainly white and shades of black. The colors black and white are typical symbols of the past - especially in movies. Also, the subject of the Holocaust is not one that allows for a colourful palette. I only used different shades of blue as an accent colour. Blue is the typical business colour because it is sober, businesslike, reassuring and trustworthy, and it retains its character even in different shades. It is best suited to the purpose of the website. To maintain the contrast between the background and the text, a basic black and a light grey are included. All the colors also relate to the existing Bootstrap colors (e.g. primary, light and dark).
+I decided to use only basic colors, mainly white and shades of black. The colors black and white are typical symbols of the past - especially in movies. Also, the subject of the Holocaust is not one that allows for a colourful palette. I only used different shades of blue as an accent colour. Blue is the typical business colour because it is sober, businesslike, reassuring and trustworthy, and it retains its character even in different shades. It is best suited to the purpose of the website. To maintain the contrast between the background and the text, a basic black and a light grey are included. All the colors also relate to the existing Bootstrap colors (e.g. primary, light and dark). Only the Delete button in the Confirm Delete mode is red, because deleting is an irreversible action.
 
 ![Colors basic](/documentation/design/basic-colors.png)
 ![Colors shades of blue](/documentation/design/shades-blue.png)
@@ -114,7 +114,7 @@ The pictures (logo, image for home, favicons) were taken from [Pixabay](https://
 
 ### Database scheme
 
-The database model reflects the different areas of the website: the user model, which is used for all other models, the "Profile" model, the entries for the movies through the "Movie" model, the entries for the glossary entries through the "Glossary" model, the entries for the comments through the "Comment" model and the entries for the wishlist through the "Wishlist" model.
+The database model reflects the different areas of the website: the user model, which is used for all other models, the "Profile" model, the entries for the movies through the "Movie" model, the entries for the glossary items through the "Glossary" model, the entries for the comments through the "Comment" model and the entries for the wishlist through the "Wishlist" model.
 
 ![Database scheme](/documentation/design/database-schema.png)
 
@@ -222,7 +222,7 @@ Initial wireframes
   - Logged in users will find their profile on this page.
   - On the side of the profile card the user will find a drop down menu to edit their profile and/or change their password.
   - Their profile contains their username and a summary of the movies and glossary entries they have created.
-  - Below this summary, the user can find the movies and glossary entries they have created.
+  - Below this summary, the user can find the movies and glossary items they have created.
 
   ![Profile](/documentation/features/profiles-page-with-content.png)
 
@@ -240,7 +240,7 @@ Initial wireframes
 - **Change password**
 
   - Logged in users can change their password by clicking on the drop down button in their profile card.
-  - Users must enter their new password twice.
+  - They must enter their new password twice.
 
   ![Change password](/documentation/features/change-password-in-profile.png)
 
@@ -257,7 +257,7 @@ Initial wireframes
 - **Movies page**
 
   - Here users can browse all the movies.
-  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can view movies, three in each column on desktop views, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
   - Users can see how many comments a movie has or how many times it has been added to a wishlist.
   - If there are no movies, this is displayed to the users.
 
@@ -281,6 +281,9 @@ Initial wireframes
   - When logged in, users can add movies to their personal wishlist by clicking on the icon.
   - When logged in, users can delete movies from their personal wishlist by clicking on the icon.
   - Logged in users cannot add their own movies to their wishlist.
+
+  ![Cannot add to wishlist](/documentation/features/wishlist-cannot-add-own-movie.png)
+
   - Unauthenticated users are informed that they have to be logged in to add movies to a wishlist.
 
   ![Unauthenticated users wishlist](/documentation/features/unauthenticated-wishlist.png)
@@ -288,7 +291,7 @@ Initial wireframes
 - **Single movie with comments**
 
   - This page allows users to view a single movie with all the comments.
-  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can view movies with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
   - Users can see how many comments a movie has or how many times it has been added to a wishlist.
 
   ![Single movie](/documentation/features/single-movie.png)
@@ -297,9 +300,6 @@ Initial wireframes
   - When logged in, users can add movies to their personal wishlist by clicking on the icon.
   - When logged in, users can delete movies from their personal wishlist by clicking on the icon.
   - Logged in users cannot add their own movies to their wishlist.
-
-  ![Cannot add to wishlist](/documentation/features/wishlist-cannot-add-own-movie.png)
-
   - If users are logged in, they can add comments to all movies, even if they have created them.
   - A comment cannot be empty.
   - If a user has posted a comment, they can edit and/or delete their comment by clicking on the three dots to go to the drop down icons.
@@ -315,10 +315,10 @@ Initial wireframes
 
   - Unauthenticated users are redirected to the homepage and receive an error message via an alert.
 
-  - **Add a movie**
+- **Add a movie**
 
-  - Users can add a movie by clicking the 'Add Movie' button in the navbar.
-  - After clicking the button, the Add Movie form will appear.
+  - Authenticated users can add a movie by clicking the 'Add Movie' button in the navbar.
+  - After clicking the button, the Add a Movie form will appear.
   - Users must enter a title, release, director, and select a category.
   - The image and content fields can be left blank.
 
@@ -328,7 +328,7 @@ Initial wireframes
 
 - **Edit a movie**
 
-  - If the user is the owner of the movie, he/she can edit it by clicking on the three dots to get to the drop-down edit icon on the single movie page.
+  - If the authenticated user is the owner of the movie, he/she can edit it by clicking on the three dots to get to the drop-down edit icon on the single movie page.
   - Every item can be changed.
 
   ![Edit movie form](/documentation/features/edit-movie-form.png)
@@ -337,7 +337,7 @@ Initial wireframes
 
 - **Delete a movie**
 
-  - If the user is the owner of the movie, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the single movie page.
+  - If the authenticated user is the owner of the movie, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the single movie page.
   - Clicking the delete icon will delete the movie. There is an extra confirmation via a modal.
 
   ![Delete movie message](/documentation/features/message-movie-deleted.png)
@@ -350,7 +350,7 @@ Initial wireframes
 
   ![Browse all glossary items](/documentation/features/glossary-unauthenticated.png)
 
-  - If there are no movies, this is displayed to the users.
+  - If there are no glossary items, this is displayed to the users.
 
   ![Empty glossary](/documentation/features/empty-glossary-unauthenticated.png)
 
@@ -360,6 +360,7 @@ Initial wireframes
 
   - When logged in, users can add glossary items by clicking on the button.
   - When logged in, users can edit and/or delete glossary items by clicking on the three dots to go to the drop down icons.
+  - Once logged in, users can edit any glossary item, but only the creator of a glossary item can delete it by clicking on the three dots to access the drop-down icons.
 
   ![Glossary page authenticated users](/documentation/features/glossary-authenticated-can-edit.png)
 
@@ -373,7 +374,7 @@ Initial wireframes
 
 - **Add a glossary item**
 
-  - Users can add a glossary item by clicking the 'Add glossary item' button on the glossary page.
+  - Authenticated users can add a glossary item by clicking the 'Add glossary item' button on the glossary page.
   - After clicking the button, the 'Add a glossary item' form will appear.
   - Users will need to enter a title and content, so no field can be blank.
   - Titles are converted to capital letters.
@@ -395,7 +396,7 @@ Initial wireframes
 
 - **Delete a glossary item**
 
-  - If the user is the creator of the glossary item, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the glossary page or the single glossary item page.
+  - If the authenticated user is the creator of the glossary item, he/she can delete it by clicking on the three dots to get to the drop-down delete icon on the glossary page or the single glossary item page.
   - Clicking the delete icon will delete the glossary item. There is an extra confirmation via a modal.
 
   ![Delete glossary item message](/documentation/features/message-glossary-deleted.png)
@@ -407,7 +408,7 @@ Initial wireframes
 - **Wishlist page**
 
   - Once logged in, users can see their personal wishlist with movies here.
-  - Users can view movies, three in each column, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
+  - Users can view movies, three in each column on desktop view, with the owner's name, creation and update dates, title, image, release, director and a snippet of content.
   - Users can see how many comments a movie has or how many times it has been added to a wishlist.
   - Users have the same functionality to browse, search and filter movies in their wishlist as on the movies page.
 
@@ -430,14 +431,18 @@ Initial wireframes
 
   ![404 page](/documentation/features/404-page.png)
 
+  - Only if a user types in a link to a movie or glossary item that has already been deleted, they get a page with a loading spinner.
+
+  ![Deleted movie or glossary item](/documentation/features/movie-glossary-not-exist.png)
+
 ## Components
 
-The following diagram illustrates the structure of the individual React components and pages:
+The following diagram illustrates the structure of the individual React components and pages (there are two pictures because it didn't fit on one):
 
 ![Components - part 1](/documentation/features/components-part-1.png)
 ![Components - part 2](/documentation/features/components-part-2.png)
 
-Custom components were created to enable the code and functionality to re-used throughout the foodSNAP app
+Custom components were created to enable the code and functionality to re-used throughout the app:
 
 - [AlertPopUp.js](/frontend/src/components/AlertPopup.js) was created to enable messaging on user success and error actions
 - [Asset.js](/frontend/src/components/Asset.js) was created to display a spinner when data is being fetched to notify the user that an action is being performed
@@ -449,7 +454,7 @@ Custom components were created to enable the code and functionality to re-used t
 - [ScrollToTop.js](/frontend/src/components/ScrollToTop.js) was created to scroll the user back to the top of the page
 - [Searchbar.js](/frontend/src/components/Searchbar.js) was created to search movies on different pages
 
-[Movie.js](/frontend/src/pages/movies/Movie.js) and [Glossary.js](/frontend/src/pages/glossary/Glossary.js) were also used on several pages, e.g. the three latest films on the homepage or both elements on the profile page.
+[Movie.js](/frontend/src/pages/movies/Movie.js) and [Glossary.js](/frontend/src/pages/glossary/Glossary.js) were also used on several pages, e.g. the three latest movies on the homepage or both elements on the profile page.
 
 | User story               | as                 | I want to                                                                                | so that I can                                                                                              | UI components / page                                                                                                                            |
 | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -486,7 +491,7 @@ Custom components were created to enable the code and functionality to re-used t
 
 - [AlertContext.js](/frontend/src/contexts/AlertContext.js) was created to allow the alert functionality to be used at every stage in the app
 - [CurrentUserContext.js](/frontend/src/contexts/CurrentUserContext.js) was created to get the current users authentication state and redirect the user to the signin page if not signed in.
-- [ProfileDataContext.js](/frontend/src/contexts/ProfileDataContext.js) was created to setProfileData, handleFollow, handleUnfollow of user profiles and access this data throughout the app.
+- [ProfileDataContext.js](/frontend/src/contexts/ProfileDataContext.js) was created to setProfileData of user profiles and access this data throughout the app.
 
 ## Future features
 
@@ -532,7 +537,7 @@ Custom components were created to enable the code and functionality to re-used t
   - IDE used to code the project
 - [Heroku](https://www.heroku.com/)
   - Used to deploy the application
-- [ElephantSQL](https://www.elephantsql.com/)<
+- [ElephantSQL](https://www.elephantsql.com/)
   - ElephantSQL is a PostgreSQL database hosting service were the database was created
 - [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
   - To check App responsiveness and debugging
