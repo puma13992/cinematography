@@ -605,6 +605,8 @@ Custom components were created to enable the code and functionality to re-used t
 - sqlparse
   - A non-validating SQL parser for Python
   - Provides tools for working with SQL queries and statements
+- urllib3
+  - urllib3 package to ensure your movie images will save to Cloudinary without errors
 - whitenoise
   - Simplifies serving static files directly from Django
   - Enhances the performance and security of serving static files in a production environment
