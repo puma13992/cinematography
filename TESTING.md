@@ -12,7 +12,7 @@
 - [User story & manual testing](#user-story--manual-testing)
 - [Bugs](#bugs)
   - [Fixed bugs](#fixed-bugs)
-  - [(Possible) Remaining bugs](#possible-remaining-bugs)
+  - [Remaining bugs](#remaining-bugs)
 
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early and often to Heroku to confirm local and remote functioned the same.
 
@@ -449,9 +449,10 @@ In some cases an overflow will occur, for example on mobile phones or when someo
 
 #### 401 errors
 
-When I first visit the home page, I get three 401 errors in the console.
+When I first visit the home page, I get three 401 errors in the console. However, the errors appear as GET and POST errors in Google Chrome, but only as "normal" 401 errors in other browsers.
 
-![401 errors](/documentation/testing/three-401-errors.png)
+![401 errors chrome](/documentation/testing/three-401-errors.png)
+![401 errors edge](/documentation/testing/401-edge.png)
 
 #### 400 error
 
